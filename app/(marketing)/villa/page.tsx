@@ -14,7 +14,7 @@ import { villaPhotos } from "@/lib/images";
 export const metadata: Metadata = pageMeta("villa", {
   title: "The Villa | Private Pool Villa in Kannur, Kerala",
   description:
-    "Discover Othayoth Villa, a boutique 4-bedroom private pool villa in Kannur. Natural materials, total privacy and a whole home for couples, families and friends.",
+    "Discover Othayoth Villa, a boutique 2-bedroom private pool villa in Kannur. Natural materials, total privacy and a whole home for couples, families and friends.",
 });
 
 const idealGuests: { icon: IconName; title: string; body: string }[] = [

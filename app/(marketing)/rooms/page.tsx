@@ -14,7 +14,7 @@ import { rooms, type Room } from "@/lib/content";
 import { villaPhotos } from "@/lib/images";
 
 export const metadata: Metadata = pageMeta("rooms", {
-  title: "Rooms & Spaces | 4-Bedroom Villa in Kannur",
+  title: "Rooms & Spaces | 2-Bedroom Villa in Kannur",
   description:
     "Four ensuite bedrooms, living areas, a full kitchen, private pool deck and courtyard garden at Othayoth Villa, a private pool villa in Kannur, Kerala.",
 });
@@ -70,7 +70,7 @@ export default function RoomsPage() {
       <JsonLd data={breadcrumbList([{ name: "Home", path: "/" }, { name: "Rooms & Spaces", path: "/rooms" }])} />
       <PageHero
         eyebrow="Rooms & Spaces"
-        title="Four bedrooms and the spaces that hold them together"
+        title="Two bedrooms and the spaces that hold them together"
         intro="Every room opens toward the green or the water. Here is the whole home, space by space."
         photo="livingDining"
       />

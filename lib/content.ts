@@ -12,12 +12,10 @@ export const site = {
   shortName: "Othayoth",
   tagline: "A private pool villa on the Valapattanam riverside, Kannur",
   location: "Varam, Kannur, Kerala",
-  // TODO: confirm real phone/WhatsApp/email before going live with these in
-  // schema and CTAs. Currently placeholders.
-  phoneDisplay: "+91 98470 00000",
-  phoneHref: "+919847000000",
-  whatsapp: "919847000000",
-  email: "stay@othayothvilla.com",
+  phoneDisplay: "+91 88938 60226",
+  phoneHref: "+918893860226",
+  whatsapp: "918893860226",
+  // No monitored inbox yet; keep contact to phone/WhatsApp only until one exists.
   address: "Othayoth Villa, Near O V Madhavan Stupam, Varam-Kadangode Road, Varam, Kannur, Kerala 670594",
   // Structured postal address, used for LodgingBusiness / LocalBusiness schema.
   postalAddress: {
@@ -31,8 +29,8 @@ export const site = {
   geo: { lat: 11.904554, lng: 75.410521 },
   checkInTime: "14:00",
   checkOutTime: "11:00",
-  bedrooms: 4,
-  sleeps: 9,
+  bedrooms: 2,
+  sleeps: 6,
 };
 
 export type NavItem = { label: string; href: string };
@@ -87,7 +85,7 @@ export const highlights: Highlight[] = [
   },
   {
     title: "The whole villa, exclusively",
-    body: "Book the entire home for your people alone. Four bedrooms, generous shared spaces and a garden that keeps the world out.",
+    body: "Book the entire home for your people alone. Two bedrooms, generous shared spaces and a garden that keeps the world out.",
     icon: "key",
   },
   {
@@ -165,23 +163,9 @@ export const rooms: Room[] = [
     tone: "palm",
   },
   {
-    name: "The Palm Room",
-    kind: "Bedroom",
-    body: "Teak headboard, cane details and a reading nook framed by coconut palms. Made for unhurried mornings.",
-    features: ["Queen bed", "Ensuite bath", "Pool-facing", "Air-conditioned", "Reading nook"],
-    tone: "monsoon",
-  },
-  {
-    name: "The Garden Room",
-    kind: "Bedroom",
-    body: "A calm, light-filled room that opens straight onto the courtyard garden and its morning birdsong.",
-    features: ["Queen bed", "Ensuite bath", "Courtyard access", "Air-conditioned"],
-    tone: "sand",
-  },
-  {
     name: "The Family Room",
     kind: "Bedroom",
-    body: "Flexible twin-or-king setup with room for children, close to the shared living spaces.",
+    body: "A flexible twin-or-king room with extra bedding on request, close to the shared living spaces. Between the two bedrooms, the villa comfortably sleeps up to six.",
     features: ["Twin or king", "Ensuite bath", "Extra bedding", "Air-conditioned"],
     tone: "brass",
   },
@@ -230,7 +214,7 @@ export const amenityGroups: AmenityGroup[] = [
   {
     title: "Connectivity",
     icon: "wifi",
-    items: ["High-speed fibre Wi-Fi", "Smart TV with streaming", "Bluetooth speaker", "Strong mobile coverage", "Work-friendly corners"],
+    items: ["Smart TV with streaming", "Bluetooth speaker", "Strong mobile coverage", "Work-friendly corners"],
   },
   {
     title: "The Pool & Outdoors",
@@ -272,13 +256,13 @@ export const faqs: FAQ[] = [
   { group: "Stay", q: "Is the whole villa private to my group?", a: "Yes. Othayoth is only ever booked as a whole villa, so the home, garden and pool are exclusively yours for the length of your stay." },
   { group: "Pool", q: "Are there rules for the private pool?", a: "The pool is yours to enjoy through the day. For everyone's safety, children should always be supervised and we ask that glassware is kept away from the water. There is no lifeguard on site." },
   { group: "Food", q: "What are the food options?", a: "You can cook in the full kitchen, or book our private chef for Kerala and continental menus. A welcome sadya, seafood evenings and candlelight dinners can all be arranged in advance." },
-  { group: "Guests", q: "Can we have extra guests or day visitors?", a: "The villa comfortably sleeps up to nine. Extra guests and day visitors can be accommodated on request for a small charge, so we can prepare properly and keep things comfortable." },
+  { group: "Guests", q: "Can we have extra guests or day visitors?", a: "The villa comfortably sleeps up to six. Extra guests and day visitors can be accommodated on request for a small charge, so we can prepare properly and keep things comfortable." },
   { group: "Guests", q: "Are children welcome?", a: "Very much so. We provide a baby cot and high chair on request. Please note the open pool and garden, and keep little ones supervised." },
   { group: "Guests", q: "Do you allow pets?", a: "We love animals, but to keep the villa comfortable for every guest we are not able to accommodate pets at this time." },
   { group: "Stay", q: "Is there a noise policy?", a: "Celebrations are welcome. We simply ask that music is kept gentle after 10:30 PM out of respect for the quiet neighbourhood around us." },
   { group: "Booking", q: "What is the cancellation policy?", a: "Free cancellation up to 14 days before check-in with a full refund of any advance. Within 14 days the advance is non-refundable, though we will always try to help you reschedule." },
   { group: "Practical", q: "Is parking available?", a: "Yes, there is secure, gated parking on the property for two to three cars, right at the entrance." },
-  { group: "Practical", q: "How reliable are Wi-Fi and power?", a: "The villa has high-speed fibre Wi-Fi throughout and full 24x7 power backup, so a monsoon outage never interrupts your stay." },
+  { group: "Practical", q: "How reliable is the power supply?", a: "The villa has full 24x7 power backup, so a monsoon outage never interrupts your stay." },
 ];
 
 export type Review = { name: string; from: string; quote: string; stars: number };
@@ -293,16 +277,17 @@ export const reviews: Review[] = [
 export type LocationPoint = { name: string; detail: string; distance: string; duration?: string };
 
 /**
- * Distances and drive times below Varam Kadavu are sourced from the owner's
- * own local map. Airport and railway station distances are not on that map
- * and are marked TODO until confirmed against an actual drive.
+ * Distances and drive times are owner-confirmed. Airport and railway station
+ * distances are still marked TODO until confirmed against an actual drive.
  */
 export const nearby: LocationPoint[] = [
   { name: "Varam Kadavu", detail: "A scenic riverside walk along the Valapattanam, right by the villa", distance: "2.5 km", duration: "4 min" },
+  { name: "Kizhunna Beach", detail: "Golden sand, rarely crowded", distance: "2.2 km", duration: "24 min" },
   { name: "Kattampally Backwaters", detail: "Kayaking through quiet paddy-fringed canals", distance: "8.5 km", duration: "16 min" },
-  { name: "Parassinikadavu Sri Muthappan Temple", detail: "A riverside temple famed for its daily rituals", distance: "14.8 km", duration: "20 min" },
   { name: "Payyambalam Beach", detail: "Kannur's promenade beach, best at sunset", distance: "10.5 km", duration: "20 min" },
   { name: "St. Angelo Fort", detail: "A 16th-century sea-facing Portuguese fort", distance: "10.5 km", duration: "20 min" },
+  { name: "Thottada Beach", detail: "A quiet cove of soft sand", distance: "11.4 km", duration: "21 min" },
+  { name: "Parassinikadavu Sri Muthappan Temple", detail: "A riverside temple famed for its daily rituals", distance: "14.8 km", duration: "20 min" },
   { name: "Muzhappilangad Drive-in Beach", detail: "A 4 km stretch of firm, driveable golden sand", distance: "16 km", duration: "30 min" },
   { name: "Neeliyar Kottam", detail: "A Theyyam performance shrine (seasonal, October to May)", distance: "20 km", duration: "36 min" },
   // TODO: confirm exact drive time/distance from the villa; not on the owner's map.

@@ -124,8 +124,8 @@ export default function LocationPage() {
                 <a href={`tel:${site.phoneHref}`} className="flex items-center gap-3 text-palm-600 hover:text-palm-500">
                   <Icon name="phone" size={18} className="text-brass-400" /> {site.phoneDisplay}
                 </a>
-                <a href={`mailto:${site.email}`} className="flex items-center gap-3 text-palm-600 hover:text-palm-500">
-                  <Icon name="mail" size={18} className="text-brass-400" /> {site.email}
+                <a href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-palm-600 hover:text-palm-500">
+                  <Icon name="whatsapp" size={18} className="text-brass-400" /> WhatsApp us
                 </a>
                 <a href={GOOGLE_MAPS_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-palm-600 hover:text-palm-500">
                   <Icon name="map" size={18} className="text-brass-400" /> Get directions

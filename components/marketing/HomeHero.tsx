@@ -51,8 +51,8 @@ export function HomeHero() {
 
           <dl className="mt-14 grid max-w-lg grid-cols-3 gap-6 border-t border-linen-100/20 pt-8">
             {[
-              { v: "4", l: "Bedrooms" },
-              { v: "9", l: "Guests" },
+              { v: "2", l: "Bedrooms" },
+              { v: "6", l: "Guests" },
               { v: "1", l: "Private pool" },
             ].map((s) => (
               <div key={s.l}>

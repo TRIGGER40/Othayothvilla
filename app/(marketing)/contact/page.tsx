@@ -12,13 +12,12 @@ import { site } from "@/lib/content";
 export const metadata: Metadata = pageMeta("contact", {
   title: "Contact | Book Othayoth Pool Villa in Kannur",
   description:
-    "Contact Othayoth Villa in Kannur, Kerala. Call, WhatsApp or email to check dates and plan your private pool villa stay. A real person replies, usually same day.",
+    "Contact Othayoth Villa in Kannur, Kerala. Call or WhatsApp to check dates, ask about rates and plan your private pool villa stay. A real person replies, usually same day.",
 });
 
 const channels: { icon: IconName; label: string; value: string; href: string; external?: boolean }[] = [
   { icon: "whatsapp", label: "WhatsApp", value: "Chat with us", href: `https://wa.me/${site.whatsapp}`, external: true },
   { icon: "phone", label: "Call", value: site.phoneDisplay, href: `tel:${site.phoneHref}` },
-  { icon: "mail", label: "Email", value: site.email, href: `mailto:${site.email}` },
 ];
 
 export default function ContactPage() {

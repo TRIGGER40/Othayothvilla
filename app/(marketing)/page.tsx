@@ -19,7 +19,7 @@ import { villaPhotos } from "@/lib/images";
 export const metadata: Metadata = pageMeta("home", {
   title: "Private Pool Villa in Kannur, Kerala | Othayoth Villa",
   description:
-    "Othayoth Villa is a boutique private pool villa in Kannur, Kerala. Book the whole 4-bedroom riverside home in Varam for families and couples. Same-day availability.",
+    "Othayoth Villa is a boutique private pool villa in Kannur, Kerala. Book the whole 2-bedroom riverside home in Varam for families and couples. Same-day availability.",
 });
 
 export default function HomePage() {
@@ -38,7 +38,7 @@ export default function HomePage() {
             <div className="mt-6 space-y-4 text-lg leading-relaxed text-stone-400">
               <p>
                 Behind a green wall of coconut and areca, on the Valapattanam
-                riverside in Varam, Othayoth Villa is a four-bedroom{" "}
+                riverside in Varam, Othayoth Villa is a two-bedroom{" "}
                 <Link href="/rooms" className="text-palm-600 underline decoration-brass-300 underline-offset-4 hover:decoration-brass-400">
                   private pool villa in Kannur
                 </Link>{" "}
@@ -125,7 +125,7 @@ export default function HomePage() {
                   romantic villa in Kannur
                 </Link>
                 , families wanting room to spread out, or friends planning a weekend
-                getaway, the private pool, garden and four bedrooms are yours alone.
+                getaway, the private pool, garden and both bedrooms are yours alone.
               </p>
               <p>
                 The villa sits in Varam, on the quiet riverside stretch of North Kerala,
@@ -163,9 +163,10 @@ export default function HomePage() {
               <h3 className="text-sm uppercase tracking-widest text-brass-500">At a glance</h3>
               <dl className="mt-5 space-y-3 text-sm">
                 {[
-                  ["Property", "Whole 4-bedroom pool villa"],
-                  ["Sleeps", "Up to 9 guests"],
+                  ["Property", "Whole 2-bedroom pool villa"],
+                  ["Sleeps", "Up to 6 guests"],
                   ["Pool", "Private, screened, yours only"],
+                  ["Pricing", "Contact us for a custom rate"],
                   ["Varam Kadavu (river)", "≈ 2.5 km"],
                   ["Payyambalam Beach", "≈ 10.5 km"],
                   ["Kannur Airport (CNN)", "≈ 19 km"],

@@ -14,7 +14,7 @@ import { faqs, site } from "@/lib/content";
 export const metadata: Metadata = pageMeta("faq", {
   title: "FAQ | Booking a Pool Villa in Kannur, Kerala",
   description:
-    "Answers on check-in, the private pool, food and private chef, extra guests, children, pets, cancellation, parking and Wi-Fi at Othayoth Villa in Kannur.",
+    "Answers on check-in, the private pool, food and private chef, extra guests, children, pets, cancellation, parking and power backup at Othayoth Villa in Kannur.",
 });
 
 const order = ["Stay", "Pool", "Food", "Guests", "Booking", "Practical"];
