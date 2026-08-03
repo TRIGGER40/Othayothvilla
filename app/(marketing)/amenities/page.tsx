@@ -24,8 +24,7 @@ export default function AmenitiesPage() {
         eyebrow="Amenities"
         title="Everything taken care of, quietly"
         intro="The comforts you expect and the small touches you do not, all in place before you arrive."
-        tone="palm"
-        motif="palms"
+        photo="welcomeBasket"
       />
 
       <Section tone="linen" size="lg">

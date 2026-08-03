@@ -41,6 +41,18 @@ export const villaPhotos = {
     src: "/images/villa-kitchen.webp",
     alt: "Fully equipped modern kitchen at Othayoth private villa in Kannur, Kerala",
   },
+  welcomeBasket: {
+    src: "/images/amenities-welcome-basket.webp",
+    alt: "Welcome basket of Kerala snacks in the living room at Othayoth Villa, private pool villa in Kannur",
+  },
+  windowDetail: {
+    src: "/images/faq-window-detail.webp",
+    alt: "Wooden window and tiled awning detail at Othayoth Villa, private pool villa in Kannur, Kerala",
+  },
+  exteriorPalms: {
+    src: "/images/gallery-villa-exterior.webp",
+    alt: "Othayoth Villa exterior at dusk framed by coconut palms, private pool villa in Kannur, Kerala",
+  },
 } as const;
 
 export type VillaPhotoKey = keyof typeof villaPhotos;

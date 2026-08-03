@@ -22,8 +22,7 @@ export default function GalleryPage() {
         eyebrow="Gallery"
         title="The villa, in its many moods"
         intro="Morning light on the water, teak and cane inside, lamps along the garden wall at night. Filter by what you would like to see."
-        tone="brass"
-        motif="sun"
+        photo="exteriorPalms"
       />
 
       <Section tone="linen" size="lg">

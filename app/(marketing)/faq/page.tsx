@@ -32,8 +32,7 @@ export default function FAQPage() {
         eyebrow="FAQ"
         title="Everything you might want to ask"
         intro="The practical details, answered simply. If anything is still unclear, we are a message away."
-        tone="palm"
-        motif="palms"
+        photo="windowDetail"
       />
 
       <Section tone="linen" size="lg">
