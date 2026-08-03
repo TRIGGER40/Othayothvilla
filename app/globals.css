@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-fraunces: "Fraunces", Georgia, serif;
+    --font-inter: "Inter", system-ui, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-linen-100 text-ink font-sans antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    @apply bg-palm-500 text-linen-50;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-brass-400 ring-offset-2 ring-offset-linen-100 rounded-sm;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-serif text-palm-600;
+    font-optical-sizing: auto;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12;
+  }
+
+  .container-narrow {
+    @apply mx-auto w-full max-w-3xl px-5 sm:px-8;
+  }
+
+  /* Small brass eyebrow label used above section headings */
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-brass-500;
+  }
+
+  .eyebrow::before {
+    content: "";
+    @apply h-px w-6 bg-brass-300;
+  }
+
+  .link-underline {
+    @apply relative inline-block;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-repeat: no-repeat;
+    background-position: left bottom;
+    transition: background-size 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .link-underline:hover {
+    background-size: 100% 1px;
+  }
+
+  /* Subtle grain / paper texture overlay */
+  .texture-linen {
+    background-image: radial-gradient(rgba(43, 39, 35, 0.035) 1px, transparent 1px);
+    background-size: 4px 4px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
