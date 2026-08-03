@@ -3,7 +3,7 @@ import type { ButtonHTMLAttributes, ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { Icon, type IconName } from "@/components/icons/Icon";
 
-type Variant = "primary" | "secondary" | "ghost" | "brass";
+type Variant = "primary" | "secondary" | "ghost" | "brass" | "outline";
 type Size = "sm" | "md" | "lg";
 
 const base =
@@ -18,6 +18,13 @@ const variants: Record<Variant, string> = {
     "border border-palm-600/25 text-palm-600 bg-linen-50/60 hover:bg-linen-50 hover:border-palm-600/40 ring-offset-linen-100",
   ghost:
     "text-palm-600 hover:bg-palm-500/10 ring-offset-linen-100",
+  // For dark/photo backgrounds. Kept as its own variant rather than an
+  // override className on `secondary`: Tailwind's generated CSS order (not
+  // the className string order) decides which conflicting utility wins, so
+  // layering light-on-dark colors on top of secondary's dark-on-light
+  // defaults was silently rendering invisible dark-on-dark text/borders.
+  outline:
+    "border border-linen-100/30 bg-linen-50/10 text-linen-50 backdrop-blur-sm hover:bg-linen-50/20 ring-offset-palm-600",
 };
 
 const sizes: Record<Size, string> = {

@@ -24,11 +24,10 @@ export function BookingCTA() {
             <ButtonLink
               href={`https://wa.me/${site.whatsapp}`}
               external
-              variant="secondary"
+              variant="outline"
               size="lg"
               icon="whatsapp"
               iconPosition="left"
-              className="border-linen-100/25 bg-transparent text-linen-50 hover:bg-linen-50/10"
             >
               Message on WhatsApp
             </ButtonLink>

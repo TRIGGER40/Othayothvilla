@@ -39,12 +39,7 @@ export function HomeHero() {
             <ButtonLink href="/book" variant="brass" size="lg" icon="arrow-right">
               Check availability
             </ButtonLink>
-            <ButtonLink
-              href="/villa"
-              variant="secondary"
-              size="lg"
-              className="border-linen-100/30 bg-linen-50/10 text-linen-50 backdrop-blur-sm hover:bg-linen-50/20"
-            >
+            <ButtonLink href="/villa" variant="outline" size="lg">
               Discover the villa
             </ButtonLink>
           </div>
