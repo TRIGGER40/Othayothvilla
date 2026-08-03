@@ -1,5 +1,10 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { SESSION_COOKIE } from "@/lib/session-config";
+
+// Inlined rather than imported from lib/session-config: Vercel's Edge Function
+// bundler flags a module shared with the Node-runtime lib/auth.ts import graph
+// as "unsupported" for the edge, even though this constant itself is trivial.
+// Keep this value in sync with lib/session-config.ts's SESSION_COOKIE.
+const SESSION_COOKIE = "othayoth_stay";
 
 /**
  * Middleware does two things on every request:

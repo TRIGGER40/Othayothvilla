@@ -29,3 +29,5 @@ yarn-error.log*
 
 # uncompressed source photography (compressed copies live in public/images)
 /source-photos
+.vercel
+.env*
