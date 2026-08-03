@@ -17,7 +17,7 @@ export const portalNav: PortalLink[] = [
 ];
 
 export const checkInSteps: { title: string; body: string }[] = [
-  { title: "Reaching the villa", body: "Follow the coconut backroad off the Thottada junction. The last stretch is a quiet lane. Your live location pin is in the dashboard, and the caretaker will meet you at the gate." },
+  { title: "Reaching the villa", body: "Follow Varam-Kadangode Road to the villa, near O V Madhavan Stupam. The last stretch is a quiet lane. Your live location pin is in the dashboard, and the caretaker will meet you at the gate." },
   { title: "Parking", body: "Drive straight in through the gate. Secure parking for two to three cars is on your right, just inside the entrance." },
   { title: "Getting in", body: "Vinod will welcome you and hand over the keys. If you arrive after dark, the veranda and path lights are already on for you." },
   { title: "On arrival", body: "Settle in with a welcome drink, take a walk through the house and garden, and tell us if you would like the pool towels set out." },
@@ -61,6 +61,10 @@ export type Recommendation = {
 };
 
 export const recommendations: Recommendation[] = [
+  // TODO: "Eat & drink" and "Practical" below are placeholder business names
+  // and distances only, not yet confirmed against real places near Varam.
+  // Replace with the owner's actual local recommendations before guests see
+  // this page.
   {
     category: "Eat & drink",
     icon: "utensils",
@@ -71,21 +75,22 @@ export const recommendations: Recommendation[] = [
     ],
   },
   {
-    category: "Beaches",
+    category: "Backwaters & Beaches",
     icon: "wave",
     places: [
-      { name: "Thottada Beach", note: "Your closest cove, quiet and swimmable", distance: "1.5 km" },
-      { name: "Kizhunna Ezhara", note: "Golden sand, rarely crowded", distance: "3 km" },
-      { name: "Payyambalam Beach", note: "Long promenade, best at sunset", distance: "9 km" },
+      { name: "Varam Kadavu", note: "Scenic riverside walk, right by the villa", distance: "2.5 km" },
+      { name: "Kattampally Backwaters", note: "Kayaking through quiet canals", distance: "8.5 km" },
+      { name: "Payyambalam Beach", note: "Long promenade, best at sunset", distance: "10.5 km" },
+      { name: "Muzhappilangad Drive-in Beach", note: "Four-kilometre drive-in beach", distance: "16 km" },
     ],
   },
   {
     category: "See & do",
     icon: "map",
     places: [
-      { name: "St. Angelo Fort", note: "Sea-facing fort with wide views", distance: "10 km" },
-      { name: "Loknath Weavers", note: "Watch Kannur handloom being woven", distance: "9 km" },
-      { name: "Theyyam (in season)", note: "Ask us, we will find a ritual near you", distance: "varies" },
+      { name: "St. Angelo Fort", note: "Sea-facing fort with wide views", distance: "10.5 km" },
+      { name: "Parassinikadavu Sri Muthappan Temple", note: "Riverside temple with daily rituals", distance: "14.8 km" },
+      { name: "Neeliyar Kottam", note: "Theyyam performance shrine, in season", distance: "20 km" },
     ],
   },
   {

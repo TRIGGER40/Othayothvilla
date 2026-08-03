@@ -68,7 +68,7 @@ export default async function CheckInPage() {
             <h3 className="font-serif text-lg text-linen-50">Getting to the gate</h3>
             <p className="mt-1 text-sm text-linen-100/80">{site.address}</p>
             <a
-              href="https://maps.google.com/?q=Thottada+Beach+Kannur"
+              href={`https://www.google.com/maps/search/?api=1&query=${site.geo.lat},${site.geo.lng}`}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-4 inline-flex items-center gap-2 rounded-full bg-brass-400 px-4 py-2 text-sm font-medium text-palm-700 transition-colors hover:bg-brass-300"

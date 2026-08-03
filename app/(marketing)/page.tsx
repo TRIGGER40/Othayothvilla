@@ -19,7 +19,7 @@ import { villaPhotos } from "@/lib/images";
 export const metadata: Metadata = pageMeta("home", {
   title: "Private Pool Villa in Kannur, Kerala | Othayoth Villa",
   description:
-    "Othayoth Villa is a boutique private pool villa in Kannur, Kerala. Book the whole 4-bedroom home near Thottada Beach for families and couples. Same-day availability.",
+    "Othayoth Villa is a boutique private pool villa in Kannur, Kerala. Book the whole 4-bedroom riverside home in Varam for families and couples. Same-day availability.",
 });
 
 export default function HomePage() {
@@ -37,8 +37,8 @@ export default function HomePage() {
             </h2>
             <div className="mt-6 space-y-4 text-lg leading-relaxed text-stone-400">
               <p>
-                Behind a green wall of coconut and areca, minutes from Thottada&rsquo;s
-                soft-sand coves, Othayoth Villa is a four-bedroom{" "}
+                Behind a green wall of coconut and areca, on the Valapattanam
+                riverside in Varam, Othayoth Villa is a four-bedroom{" "}
                 <Link href="/rooms" className="text-palm-600 underline decoration-brass-300 underline-offset-4 hover:decoration-brass-400">
                   private pool villa in Kannur
                 </Link>{" "}
@@ -128,11 +128,11 @@ export default function HomePage() {
                 getaway, the private pool, garden and four bedrooms are yours alone.
               </p>
               <p>
-                The villa sits in the quiet green belt of North Kerala, a short drive from
-                Thottada, Kizhunna and Payyambalam beaches and around 30 km from Kannur
-                International Airport (CNN). It is close enough to explore St. Angelo Fort,
-                Muzhappilangad drive-in beach and Kannur&rsquo;s handloom weavers, yet far
-                enough to feel like a genuine retreat. See{" "}
+                The villa sits in Varam, on the quiet riverside stretch of North Kerala,
+                a short drive from backwater kayaking, Theyyam shrines and Payyambalam
+                beach, and roughly 19 km from Kannur International Airport (CNN). It is
+                close enough to explore St. Angelo Fort and Muzhappilangad drive-in
+                beach, yet far enough to feel like a genuine retreat. See{" "}
                 <Link href="/location" className="text-palm-600 underline decoration-brass-300 underline-offset-4 hover:decoration-brass-400">
                   how to reach us and what is nearby
                 </Link>
@@ -166,9 +166,9 @@ export default function HomePage() {
                   ["Property", "Whole 4-bedroom pool villa"],
                   ["Sleeps", "Up to 9 guests"],
                   ["Pool", "Private, screened, yours only"],
-                  ["Thottada Beach", "≈ 1.5 km"],
-                  ["Payyambalam Beach", "≈ 9 km"],
-                  ["Kannur Airport (CNN)", "≈ 30 km"],
+                  ["Varam Kadavu (river)", "≈ 2.5 km"],
+                  ["Payyambalam Beach", "≈ 10.5 km"],
+                  ["Kannur Airport (CNN)", "≈ 19 km"],
                 ].map(([k, v]) => (
                   <div key={k} className="flex items-center justify-between gap-4 border-b border-stone-200/50 pb-3 last:border-0 last:pb-0">
                     <dt className="text-stone-400">{k}</dt>

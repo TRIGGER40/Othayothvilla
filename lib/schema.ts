@@ -90,7 +90,7 @@ function lodgingBusiness() {
     "@id": BUSINESS_ID,
     name: site.name,
     description:
-      "Othayoth Villa is a boutique private pool villa in Kannur, Kerala, booked as a whole four-bedroom home for couples, families and small groups near Thottada Beach.",
+      "Othayoth Villa is a boutique private pool villa in Kannur, Kerala, booked as a whole four-bedroom home for couples, families and small groups on the Valapattanam riverside in Varam.",
     url: SITE_URL,
     telephone: site.phoneDisplay,
     email: site.email,
@@ -111,7 +111,7 @@ function lodgingBusiness() {
     checkinTime: site.checkInTime,
     checkoutTime: site.checkOutTime,
     amenityFeature: amenityFeatures(),
-    areaServed: ["Kannur", "Thottada", "North Kerala"],
+    areaServed: ["Kannur", "Varam", "North Kerala"],
     parentOrganization: { "@id": ORG_ID },
     aggregateRating: aggregateRating(),
     review: reviewList(),

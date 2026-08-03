@@ -10,24 +10,25 @@ export const site = {
   name: "Othayoth Villa",
   /** Short form used mid-sentence, especially before a descriptive clause. */
   shortName: "Othayoth",
-  tagline: "A private pool villa where the coast slows down",
-  location: "Kannur, Kerala",
+  tagline: "A private pool villa on the Valapattanam riverside, Kannur",
+  location: "Varam, Kannur, Kerala",
+  // TODO: confirm real phone/WhatsApp/email before going live with these in
+  // schema and CTAs. Currently placeholders.
   phoneDisplay: "+91 98470 00000",
   phoneHref: "+919847000000",
   whatsapp: "919847000000",
   email: "stay@othayothvilla.com",
-  address: "Near Thottada Beach, Kannur, Kerala 670007",
+  address: "Othayoth Villa, Near O V Madhavan Stupam, Varam-Kadangode Road, Varam, Kannur, Kerala 670594",
   // Structured postal address, used for LodgingBusiness / LocalBusiness schema.
   postalAddress: {
-    street: "Near Thottada Beach",
-    locality: "Kannur",
+    street: "Near O V Madhavan Stupam, Varam-Kadangode Road",
+    locality: "Varam, Kannur",
     region: "Kerala",
-    postalCode: "670007",
+    postalCode: "670594",
     country: "IN",
   },
-  // Approximate coordinates for the Thottada Beach area, Kannur. Refine to the
-  // exact property pin before launch for best local-search accuracy.
-  geo: { lat: 11.8256, lng: 75.4064 },
+  // Resolved from the owner's shared Google Maps pin for the property.
+  geo: { lat: 11.9047748, lng: 75.410136 },
   checkInTime: "14:00",
   checkOutTime: "11:00",
   bedrooms: 4,
@@ -91,7 +92,7 @@ export const highlights: Highlight[] = [
   },
   {
     title: "Rooted in Kannur",
-    body: "Minutes from Thottada's quiet beaches and the slow rhythm of north Kerala, yet tucked behind a green wall of coconut and areca.",
+    body: "On the Valapattanam riverside in Varam, close to Theyyam shrines and the slow rhythm of north Kerala, yet tucked behind a green wall of coconut and areca.",
     icon: "leaf",
   },
   {
@@ -261,7 +262,7 @@ export const experiences: Experience[] = [
   { title: "Malabar Seafood Evening", body: "The day's catch from the coast, cooked north-Kerala style by your private chef.", tone: "palm" },
   { title: "Celebration Setup", body: "Flowers, lights and a cake for anniversaries and milestones. Tell us the occasion.", tone: "sand" },
   { title: "Slow Morning Wellness", body: "Yoga on the deck and an in-villa Ayurvedic massage, arranged with local practitioners.", tone: "palm", photo: "poolYoga" },
-  { title: "Local Discovery", body: "A gentle guide to Thottada's beaches, Theyyam season, weavers and Kannur's quiet corners.", tone: "monsoon" },
+  { title: "Local Discovery", body: "A gentle guide to backwater kayaking, Theyyam season, Kannur's beaches and quiet corners.", tone: "monsoon" },
 ];
 
 export type FAQ = { q: string; a: string; group: string };
@@ -289,13 +290,21 @@ export const reviews: Review[] = [
   { name: "Sneha T.", from: "Kochi", stars: 5, quote: "Rain on the tiled roof, warm light inside, brilliant food. The most restful three days we have had in years." },
 ];
 
-export type LocationPoint = { name: string; detail: string; distance: string };
+export type LocationPoint = { name: string; detail: string; distance: string; duration?: string };
 
+/**
+ * Distances and drive times below Varam Kadavu are sourced from the owner's
+ * own local map. Airport and railway station distances are not on that map
+ * and are marked TODO until confirmed against an actual drive.
+ */
 export const nearby: LocationPoint[] = [
-  { name: "Thottada Beach", detail: "A quiet cove of soft sand, minutes away", distance: "1.5 km" },
-  { name: "Kizhunna Beach", detail: "Golden, uncrowded and swimmable", distance: "3 km" },
-  { name: "Kannur town", detail: "Markets, weavers and cafes", distance: "8 km" },
-  { name: "St. Angelo Fort", detail: "Sea-facing Portuguese fort", distance: "10 km" },
-  { name: "Payyambalam Beach", detail: "Long promenade and sunsets", distance: "9 km" },
-  { name: "Kannur Airport (CNN)", detail: "Direct road connection", distance: "30 km" },
+  { name: "Varam Kadavu", detail: "A scenic riverside walk along the Valapattanam, right by the villa", distance: "2.5 km", duration: "4 min" },
+  { name: "Kattampally Backwaters", detail: "Kayaking through quiet paddy-fringed canals", distance: "8.5 km", duration: "16 min" },
+  { name: "Parassinikadavu Sri Muthappan Temple", detail: "A riverside temple famed for its daily rituals", distance: "14.8 km", duration: "20 min" },
+  { name: "Payyambalam Beach", detail: "Kannur's promenade beach, best at sunset", distance: "10.5 km", duration: "20 min" },
+  { name: "St. Angelo Fort", detail: "A 16th-century sea-facing Portuguese fort", distance: "10.5 km", duration: "20 min" },
+  { name: "Muzhappilangad Drive-in Beach", detail: "A 4 km stretch of firm, driveable golden sand", distance: "16 km", duration: "30 min" },
+  { name: "Neeliyar Kottam", detail: "A Theyyam performance shrine (seasonal, October to May)", distance: "20 km", duration: "36 min" },
+  // TODO: confirm exact drive time/distance from the villa; not on the owner's map.
+  { name: "Kannur International Airport (CNN)", detail: "Direct road connection", distance: "≈ 19 km" },
 ];

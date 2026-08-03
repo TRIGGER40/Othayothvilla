@@ -27,12 +27,12 @@ export function HomeHero() {
             <Icon name="pin" size={14} className="text-brass-200" /> {site.location}
           </p>
           <h1 className="mt-6 text-display-xl text-balance text-linen-50">
-            A private pool villa in Kannur where the coast slows down
+            A private pool villa in Kannur where the river slows everything down
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-linen-100/90 sm:text-xl">
             Othayoth is a boutique private pool villa in Kannur, Kerala, booked
             whole for your people alone. Palm-shaded water, a Kerala table, and
-            the quiet you came for, minutes from Thottada Beach.
+            the quiet you came for, on the Valapattanam riverside in Varam.
           </p>
 
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
