@@ -60,15 +60,9 @@ export function middleware(req: NextRequest) {
 }
 
 export const config = {
-  // Run on all routes except static assets and prefetches, so the CSP nonce is
-  // present wherever Next renders HTML.
+  // Run on all routes except static assets, so the CSP nonce is present
+  // wherever Next renders HTML.
   matcher: [
-    {
-      source: "/((?!_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml).*)",
-      missing: [
-        { type: "header", key: "next-router-prefetch" },
-        { type: "header", key: "purpose", value: "prefetch" },
-      ],
-    },
+    "/((?!_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|images/|logo/).*)",
   ],
 };
