@@ -27,8 +27,8 @@ export const site = {
     postalCode: "670594",
     country: "IN",
   },
-  // Resolved from the owner's shared Google Maps pin for the property.
-  geo: { lat: 11.9047748, lng: 75.410136 },
+  // Exact coordinate supplied by the owner for the property.
+  geo: { lat: 11.904554, lng: 75.410521 },
   checkInTime: "14:00",
   checkOutTime: "11:00",
   bedrooms: 4,
