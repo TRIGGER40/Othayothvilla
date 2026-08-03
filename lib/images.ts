@@ -11,35 +11,35 @@
 export const villaPhotos = {
   exteriorDusk: {
     src: "/images/villa-exterior-dusk.webp",
-    alt: "Othayoth Villa's tiled roofline and courtyard, lit at dusk with the pool beyond",
+    alt: "Othayoth Villa private pool villa in Kannur, Kerala, tiled roofline and pool lit at dusk",
   },
   mainGate: {
     src: "/images/villa-main-gate.webp",
-    alt: "The main gate of Othayoth Villa, lit in the evening and framed by bamboo",
+    alt: "Gated private entrance of Othayoth Villa in Kannur, lit and framed by bamboo at dusk",
   },
   gardenWalkway: {
     src: "/images/villa-garden-walkway.webp",
-    alt: "A lantern-lit garden walkway along the side of the villa at dusk",
+    alt: "Lantern-lit garden walkway beside the private villa at dusk in Kannur, Kerala",
   },
   privateSitout: {
     src: "/images/villa-private-sitout.webp",
-    alt: "A private sitout at Othayoth Villa with low seating, ready for the evening",
+    alt: "Private evening sitout with low seating at Othayoth Villa, Kannur",
   },
   poolYoga: {
     src: "/images/villa-pool-yoga.webp",
-    alt: "A guided yoga session on the pool deck at dusk, Othayoth Villa",
+    alt: "Yoga on the private pool deck at dusk at Othayoth pool villa, Kannur, Kerala",
   },
   livingDining: {
     src: "/images/villa-living-dining.webp",
-    alt: "The open living and dining space at Othayoth Villa, opening onto the garden",
+    alt: "Open living and dining area opening to the garden at Othayoth Villa, Kannur",
   },
   livingRoom: {
     src: "/images/villa-living-room.webp",
-    alt: "A living room at Othayoth Villa with sofas, a television console and Kannur artwork",
+    alt: "Living room with sofas and smart TV at the luxury villa in Kannur, Kerala",
   },
   kitchen: {
     src: "/images/villa-kitchen.webp",
-    alt: "The fully equipped kitchen at Othayoth Villa",
+    alt: "Fully equipped modern kitchen at Othayoth private villa in Kannur, Kerala",
   },
 } as const;
 

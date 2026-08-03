@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbList } from "@/lib/schema";
 import { PageHero } from "@/components/marketing/PageHero";
 import { BookingCTA } from "@/components/marketing/BookingCTA";
 import { Section, SectionHeading } from "@/components/ui/Section";
@@ -8,11 +11,11 @@ import { Photo } from "@/components/ui/Photo";
 import { Icon, type IconName } from "@/components/icons/Icon";
 import { villaPhotos, type VillaPhotoKey } from "@/lib/images";
 
-export const metadata: Metadata = {
-  title: "Stay Experience",
+export const metadata: Metadata = pageMeta("stay-experience", {
+  title: "Stay Experience | Pool Villa in Kannur, Kerala",
   description:
-    "Private pool, indoor and outdoor spaces, dining moments, wellness and rainy-day comfort at Othayoth, a boutique villa in Kannur.",
-};
+    "The Othayoth stay experience in Kannur: a private pool, indoor-outdoor living, Kerala dining, wellness and rainy-day calm. Days that ask nothing of you.",
+});
 
 const moments: {
   icon: IconName;
@@ -73,6 +76,7 @@ const moments: {
 export default function StayExperiencePage() {
   return (
     <>
+      <JsonLd data={breadcrumbList([{ name: "Home", path: "/" }, { name: "Stay Experience", path: "/stay-experience" }])} />
       <PageHero
         eyebrow="Stay Experience"
         title="Days that ask nothing of you"

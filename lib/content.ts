@@ -15,8 +15,23 @@ export const site = {
   phoneDisplay: "+91 98470 00000",
   phoneHref: "+919847000000",
   whatsapp: "919847000000",
-  email: "stay@othayothvilla.example",
-  address: "Off the coconut backroads near Thottada Beach, Kannur, Kerala 670007",
+  email: "stay@othayothvilla.com",
+  address: "Near Thottada Beach, Kannur, Kerala 670007",
+  // Structured postal address, used for LodgingBusiness / LocalBusiness schema.
+  postalAddress: {
+    street: "Near Thottada Beach",
+    locality: "Kannur",
+    region: "Kerala",
+    postalCode: "670007",
+    country: "IN",
+  },
+  // Approximate coordinates for the Thottada Beach area, Kannur. Refine to the
+  // exact property pin before launch for best local-search accuracy.
+  geo: { lat: 11.8256, lng: 75.4064 },
+  checkInTime: "14:00",
+  checkOutTime: "11:00",
+  bedrooms: 4,
+  sleeps: 9,
 };
 
 export type NavItem = { label: string; href: string };

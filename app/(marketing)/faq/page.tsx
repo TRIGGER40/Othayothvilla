@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbList, faqPage } from "@/lib/schema";
 import { PageHero } from "@/components/marketing/PageHero";
 import { BookingCTA } from "@/components/marketing/BookingCTA";
 import { Section } from "@/components/ui/Section";
@@ -8,11 +11,11 @@ import { ButtonLink } from "@/components/ui/Button";
 import { Icon } from "@/components/icons/Icon";
 import { faqs, site } from "@/lib/content";
 
-export const metadata: Metadata = {
-  title: "FAQ",
+export const metadata: Metadata = pageMeta("faq", {
+  title: "FAQ | Booking a Pool Villa in Kannur, Kerala",
   description:
-    "Check-in and check-out, pool rules, food options, extra guests, children, pets, noise, cancellation, parking and Wi-Fi at Othayoth Villa.",
-};
+    "Answers on check-in, the private pool, food and private chef, extra guests, children, pets, cancellation, parking and Wi-Fi at Othayoth Villa in Kannur.",
+});
 
 const order = ["Stay", "Pool", "Food", "Guests", "Booking", "Practical"];
 
@@ -23,6 +26,8 @@ export default function FAQPage() {
 
   return (
     <>
+      <JsonLd data={breadcrumbList([{ name: "Home", path: "/" }, { name: "FAQ", path: "/faq" }])} />
+      <JsonLd data={faqPage()} />
       <PageHero
         eyebrow="FAQ"
         title="Everything you might want to ask"

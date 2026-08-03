@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbList } from "@/lib/schema";
 import { PageHero } from "@/components/marketing/PageHero";
 import { BookingCTA } from "@/components/marketing/BookingCTA";
 import { Section, SectionHeading } from "@/components/ui/Section";
@@ -8,11 +11,11 @@ import { Photo } from "@/components/ui/Photo";
 import { experiences } from "@/lib/content";
 import { villaPhotos } from "@/lib/images";
 
-export const metadata: Metadata = {
-  title: "Experiences",
+export const metadata: Metadata = pageMeta("experiences", {
+  title: "Experiences | Private Chef & Stays in Kannur",
   description:
-    "Private Kerala meals, candlelight dinners, seafood evenings, celebrations, wellness and local discovery at Othayoth Villa, Kannur.",
-};
+    "Private Kerala sadya, Malabar seafood dinners, candlelight evenings by the pool, Ayurvedic wellness and local discovery, curated at Othayoth Villa, Kannur.",
+});
 
 const toneFor: Record<string, "palm" | "monsoon" | "sand" | "brass"> = {
   palm: "palm",
@@ -24,6 +27,7 @@ const toneFor: Record<string, "palm" | "monsoon" | "sand" | "brass"> = {
 export default function ExperiencesPage() {
   return (
     <>
+      <JsonLd data={breadcrumbList([{ name: "Home", path: "/" }, { name: "Experiences", path: "/experiences" }])} />
       <PageHero
         eyebrow="Experiences"
         title="Kerala hospitality, arranged around you"

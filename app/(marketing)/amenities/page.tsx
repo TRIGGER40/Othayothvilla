@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbList } from "@/lib/schema";
 import { PageHero } from "@/components/marketing/PageHero";
 import { BookingCTA } from "@/components/marketing/BookingCTA";
 import { Section, SectionHeading } from "@/components/ui/Section";
@@ -7,15 +10,16 @@ import { Card, IconBadge } from "@/components/ui/Card";
 import { Icon, type IconName } from "@/components/icons/Icon";
 import { amenityGroups } from "@/lib/content";
 
-export const metadata: Metadata = {
-  title: "Amenities",
+export const metadata: Metadata = pageMeta("amenities", {
+  title: "Amenities | Private Pool Villa in Kannur, Kerala",
   description:
-    "Wi-Fi, air-conditioning, smart TV, private pool, parking, power backup, kitchen, housekeeping and security at Othayoth Villa, Kannur.",
-};
+    "Private pool, air-conditioning, fast Wi-Fi, smart TV, full kitchen, private chef, power backup, parking and daily housekeeping at Othayoth Villa in Kannur.",
+});
 
 export default function AmenitiesPage() {
   return (
     <>
+      <JsonLd data={breadcrumbList([{ name: "Home", path: "/" }, { name: "Amenities", path: "/amenities" }])} />
       <PageHero
         eyebrow="Amenities"
         title="Everything taken care of, quietly"

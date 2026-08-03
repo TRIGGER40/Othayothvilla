@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbList } from "@/lib/schema";
 import { PageHero } from "@/components/marketing/PageHero";
 import { BookingCTA } from "@/components/marketing/BookingCTA";
 import { Section, SectionHeading } from "@/components/ui/Section";
@@ -8,11 +11,11 @@ import { FeatureCard } from "@/components/ui/Card";
 import { Icon, type IconName } from "@/components/icons/Icon";
 import { villaPhotos } from "@/lib/images";
 
-export const metadata: Metadata = {
-  title: "The Villa",
+export const metadata: Metadata = pageMeta("villa", {
+  title: "The Villa | Private Pool Villa in Kannur, Kerala",
   description:
-    "The story of Othayoth Villa, a boutique private pool villa in Kannur. Design, atmosphere, privacy and who it is made for.",
-};
+    "Discover Othayoth Villa, a boutique 4-bedroom private pool villa in Kannur. Natural materials, total privacy and a whole home for couples, families and friends.",
+});
 
 const idealGuests: { icon: IconName; title: string; body: string }[] = [
   { icon: "leaf", title: "Couples", body: "A private, romantic retreat for slow days and candlelit nights by the pool." },
@@ -24,6 +27,7 @@ const idealGuests: { icon: IconName; title: string; body: string }[] = [
 export default function VillaPage() {
   return (
     <>
+      <JsonLd data={breadcrumbList([{ name: "Home", path: "/" }, { name: "The Villa", path: "/villa" }])} />
       <PageHero
         eyebrow="The Villa"
         title="A home built around water, light and quiet"

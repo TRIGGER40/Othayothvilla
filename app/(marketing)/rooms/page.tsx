@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbList } from "@/lib/schema";
 import { PageHero } from "@/components/marketing/PageHero";
 import { BookingCTA } from "@/components/marketing/BookingCTA";
 import { Section } from "@/components/ui/Section";
@@ -10,11 +13,11 @@ import { Icon } from "@/components/icons/Icon";
 import { rooms, type Room } from "@/lib/content";
 import { villaPhotos } from "@/lib/images";
 
-export const metadata: Metadata = {
-  title: "Rooms & Spaces",
+export const metadata: Metadata = pageMeta("rooms", {
+  title: "Rooms & Spaces | 4-Bedroom Villa in Kannur",
   description:
-    "Bedrooms, bathrooms, living areas, the pool deck, garden, kitchen and lounges at Othayoth Villa in Kannur.",
-};
+    "Four ensuite bedrooms, living areas, a full kitchen, private pool deck and courtyard garden at Othayoth Villa, a private pool villa in Kannur, Kerala.",
+});
 
 const toneFor: Record<string, "palm" | "monsoon" | "sand" | "brass"> = {
   palm: "palm",
@@ -64,6 +67,7 @@ function RoomRow({ room, index }: { room: Room; index: number }) {
 export default function RoomsPage() {
   return (
     <>
+      <JsonLd data={breadcrumbList([{ name: "Home", path: "/" }, { name: "Rooms & Spaces", path: "/rooms" }])} />
       <PageHero
         eyebrow="Rooms & Spaces"
         title="Four bedrooms and the spaces that hold them together"

@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbList } from "@/lib/schema";
 import { PageHero } from "@/components/marketing/PageHero";
 import { BookingForm } from "@/components/marketing/BookingForm";
 import { Section } from "@/components/ui/Section";
@@ -6,11 +9,11 @@ import { Reveal } from "@/components/ui/Reveal";
 import { Icon, type IconName } from "@/components/icons/Icon";
 import { site } from "@/lib/content";
 
-export const metadata: Metadata = {
-  title: "Check Availability",
+export const metadata: Metadata = pageMeta("book", {
+  title: "Check Availability | Pool Villa in Kannur",
   description:
-    "Request dates for Othayoth, a private pool villa in Kannur. Tell us your dates and guests and we will reply the same day.",
-};
+    "Request your dates at Othayoth Villa, a private pool villa in Kannur, Kerala. Tell us who is coming and we reply the same day. No payment taken up front.",
+});
 
 const assurances: { icon: IconName; title: string; body: string }[] = [
   { icon: "check", title: "Same-day reply", body: "We confirm availability the same day, usually within a few hours." },
@@ -21,6 +24,7 @@ const assurances: { icon: IconName; title: string; body: string }[] = [
 export default function BookPage() {
   return (
     <>
+      <JsonLd data={breadcrumbList([{ name: "Home", path: "/" }, { name: "Check Availability", path: "/book" }])} />
       <PageHero
         eyebrow="Check Availability"
         title="Tell us your dates"

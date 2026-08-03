@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbList } from "@/lib/schema";
 import { PageHero } from "@/components/marketing/PageHero";
 import { ContactForm } from "@/components/marketing/ContactForm";
 import { Section } from "@/components/ui/Section";
@@ -6,11 +9,11 @@ import { Reveal } from "@/components/ui/Reveal";
 import { Icon, type IconName } from "@/components/icons/Icon";
 import { site } from "@/lib/content";
 
-export const metadata: Metadata = {
-  title: "Contact",
+export const metadata: Metadata = pageMeta("contact", {
+  title: "Contact | Book Othayoth Pool Villa in Kannur",
   description:
-    "Contact Othayoth Villa, a boutique private pool villa in Kannur, Kerala. Call, WhatsApp or email us to plan your stay.",
-};
+    "Contact Othayoth Villa in Kannur, Kerala. Call, WhatsApp or email to check dates and plan your private pool villa stay. A real person replies, usually same day.",
+});
 
 const channels: { icon: IconName; label: string; value: string; href: string; external?: boolean }[] = [
   { icon: "whatsapp", label: "WhatsApp", value: "Chat with us", href: `https://wa.me/${site.whatsapp}`, external: true },
@@ -21,6 +24,7 @@ const channels: { icon: IconName; label: string; value: string; href: string; ex
 export default function ContactPage() {
   return (
     <>
+      <JsonLd data={breadcrumbList([{ name: "Home", path: "/" }, { name: "Contact", path: "/contact" }])} />
       <PageHero
         eyebrow="Contact"
         title="We would love to hear from you"

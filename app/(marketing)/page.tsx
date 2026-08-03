@@ -1,4 +1,6 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import { pageMeta } from "@/lib/seo";
 import { HomeHero } from "@/components/marketing/HomeHero";
 import { Reviews } from "@/components/marketing/Reviews";
 import { GalleryGrid } from "@/components/marketing/GalleryGrid";
@@ -13,6 +15,12 @@ import { ButtonLink } from "@/components/ui/Button";
 import { Icon, type IconName } from "@/components/icons/Icon";
 import { highlights, experienceHighlights, faqs, nearby } from "@/lib/content";
 import { villaPhotos } from "@/lib/images";
+
+export const metadata: Metadata = pageMeta("home", {
+  title: "Private Pool Villa in Kannur, Kerala | Othayoth Villa",
+  description:
+    "Othayoth Villa is a boutique private pool villa in Kannur, Kerala. Book the whole 4-bedroom home near Thottada Beach for families and couples. Same-day availability.",
+});
 
 export default function HomePage() {
   return (
@@ -30,13 +38,24 @@ export default function HomePage() {
             <div className="mt-6 space-y-4 text-lg leading-relaxed text-stone-400">
               <p>
                 Behind a green wall of coconut and areca, minutes from Thottada&rsquo;s
-                soft-sand coves, Othayoth Villa is a four-bedroom home built around a
-                private pool and a slow way of being.
+                soft-sand coves, Othayoth Villa is a four-bedroom{" "}
+                <Link href="/rooms" className="text-palm-600 underline decoration-brass-300 underline-offset-4 hover:decoration-brass-400">
+                  private pool villa in Kannur
+                </Link>{" "}
+                built around water and a slow way of being.
               </p>
               <p>
                 It is yours entirely for the length of your stay. Whether you come
-                as a couple, a family or a gathering of friends, the door closes
-                on the world and the coast takes over.
+                as a couple, a family or a gathering of friends, the whole home,
+                garden and pool belong to your group alone. Explore the{" "}
+                <Link href="/amenities" className="text-palm-600 underline decoration-brass-300 underline-offset-4 hover:decoration-brass-400">
+                  amenities
+                </Link>{" "}
+                or{" "}
+                <Link href="/book" className="text-palm-600 underline decoration-brass-300 underline-offset-4 hover:decoration-brass-400">
+                  check availability
+                </Link>{" "}
+                for your dates.
               </p>
             </div>
             <div className="mt-8">
@@ -90,8 +109,85 @@ export default function HomePage() {
         </div>
       </Section>
 
-      {/* Featured gallery */}
+      {/* Local SEO / context prose */}
       <Section tone="linen" size="lg">
+        <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
+          <Reveal>
+            <SectionHeading
+              eyebrow="Why Othayoth"
+              title="A private pool villa in Kannur, made for the people you bring"
+            />
+            <div className="mt-6 space-y-4 leading-relaxed text-stone-400">
+              <p>
+                Most stays in Kannur mean a hotel room and shared corridors. Othayoth is
+                the opposite: a whole home you have to yourselves. For couples looking for a{" "}
+                <Link href="/villa" className="text-palm-600 underline decoration-brass-300 underline-offset-4 hover:decoration-brass-400">
+                  romantic villa in Kannur
+                </Link>
+                , families wanting room to spread out, or friends planning a weekend
+                getaway, the private pool, garden and four bedrooms are yours alone.
+              </p>
+              <p>
+                The villa sits in the quiet green belt of North Kerala, a short drive from
+                Thottada, Kizhunna and Payyambalam beaches and around 30 km from Kannur
+                International Airport (CNN). It is close enough to explore St. Angelo Fort,
+                Muzhappilangad drive-in beach and Kannur&rsquo;s handloom weavers, yet far
+                enough to feel like a genuine retreat. See{" "}
+                <Link href="/location" className="text-palm-600 underline decoration-brass-300 underline-offset-4 hover:decoration-brass-400">
+                  how to reach us and what is nearby
+                </Link>
+                .
+              </p>
+              <p>
+                Every stay is hosted, never crowded. Order a private chef for a Kerala
+                sadya or a Malabar seafood dinner, arrange a candlelight evening by the
+                pool, or simply do nothing at all. Browse the{" "}
+                <Link href="/stay-experience" className="text-palm-600 underline decoration-brass-300 underline-offset-4 hover:decoration-brass-400">
+                  stay experience
+                </Link>{" "}
+                and{" "}
+                <Link href="/experiences" className="text-palm-600 underline decoration-brass-300 underline-offset-4 hover:decoration-brass-400">
+                  curated experiences
+                </Link>
+                , or{" "}
+                <Link href="/contact" className="text-palm-600 underline decoration-brass-300 underline-offset-4 hover:decoration-brass-400">
+                  talk to us
+                </Link>{" "}
+                about your dates.
+              </p>
+            </div>
+          </Reveal>
+
+          <Reveal delay={120}>
+            <div className="rounded-2xl border border-stone-200/60 bg-linen-50 p-7 shadow-soft">
+              <h3 className="text-sm uppercase tracking-widest text-brass-500">At a glance</h3>
+              <dl className="mt-5 space-y-3 text-sm">
+                {[
+                  ["Property", "Whole 4-bedroom pool villa"],
+                  ["Sleeps", "Up to 9 guests"],
+                  ["Pool", "Private, screened, yours only"],
+                  ["Thottada Beach", "≈ 1.5 km"],
+                  ["Payyambalam Beach", "≈ 9 km"],
+                  ["Kannur Airport (CNN)", "≈ 30 km"],
+                ].map(([k, v]) => (
+                  <div key={k} className="flex items-center justify-between gap-4 border-b border-stone-200/50 pb-3 last:border-0 last:pb-0">
+                    <dt className="text-stone-400">{k}</dt>
+                    <dd className="text-right font-medium text-palm-600">{v}</dd>
+                  </div>
+                ))}
+              </dl>
+              <div className="mt-6">
+                <ButtonLink href="/book" variant="primary" icon="arrow-right" className="w-full">
+                  Check availability
+                </ButtonLink>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </Section>
+
+      {/* Featured gallery */}
+      <Section tone="cream" size="lg">
         <div className="mb-12 flex flex-wrap items-end justify-between gap-6">
           <SectionHeading
             eyebrow="A first look"
