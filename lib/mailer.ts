@@ -13,7 +13,9 @@ function getTransport() {
     throw new Error("ZOHO_SMTP_USER and ZOHO_SMTP_PASSWORD must be set to send email.");
   }
   return nodemailer.createTransport({
-    host: "smtp.zoho.com",
+    // This mailbox lives on Zoho's India data center (mail.zoho.in), which
+    // has its own SMTP endpoint distinct from the global smtp.zoho.com.
+    host: "smtp.zoho.in",
     port: 465,
     secure: true,
     auth: { user, pass },
