@@ -77,12 +77,12 @@ const RESERVATIONS: Reservation[] = [
     balanceDue: 36750,
     addOns: [
       { id: "ao1", label: "Welcome Kerala sadya on arrival", price: 3200, status: "confirmed" },
-      { id: "ao2", label: "Private chef · 2 dinners", price: 8600, status: "confirmed" },
+      { id: "ao2", label: "In-villa dining · 2 dinners", price: 8600, status: "confirmed" },
       { id: "ao3", label: "Candlelight poolside dinner", price: 4500, status: "requested" },
     ],
     specialRequests: "Celebrating an anniversary on the second night.",
     wifi: { network: "Othayoth_Villa", password: "coconut-grove-42" },
-    hostName: "Vinod",
+    hostName: "Midhun",
     hostPhone: "+91 98470 00000",
   },
   {
@@ -104,7 +104,7 @@ const RESERVATIONS: Reservation[] = [
     balanceDue: 0,
     addOns: [{ id: "ao4", label: "Airport pickup · Kannur (CNN)", price: 2600, status: "confirmed" }],
     wifi: { network: "Othayoth_Villa", password: "coconut-grove-42" },
-    hostName: "Vinod",
+    hostName: "Midhun",
     hostPhone: "+91 98470 00000",
   },
 ];

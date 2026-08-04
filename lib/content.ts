@@ -95,7 +95,7 @@ export const highlights: Highlight[] = [
   },
   {
     title: "Hosted, never crowded",
-    body: "A caretaker on call, a chef when you want one, and housekeeping that stays out of sight. Hospitality you feel, rarely see.",
+    body: "A caretaker on call and housekeeping that stays out of sight. Hospitality you feel, rarely see.",
     icon: "hand",
   },
 ];
@@ -109,7 +109,7 @@ export const experienceHighlights: Feature[] = [
   },
   {
     title: "A Kerala table, set for you",
-    body: "Sadya on banana leaf, fresh Malabar seafood, a private chef who cooks the coast the way it is meant to taste.",
+    body: "Sadya on banana leaf, fresh Malabar seafood, cooked the way the coast means it to taste.",
   },
   {
     title: "Evenings that linger",
@@ -188,8 +188,8 @@ export const rooms: Room[] = [
   {
     name: "Kitchen & Pantry",
     kind: "Kitchen",
-    body: "A fully equipped modern kitchen for your chef or your own cooking, with a pantry stocked to request.",
-    features: ["Full kitchen", "Chef-ready", "Filter water", "Tea & coffee station"],
+    body: "A fully equipped modern kitchen for your own cooking, with a pantry stocked to request.",
+    features: ["Full kitchen", "Filter water", "Tea & coffee station", "Stocked pantry"],
     tone: "sand",
     photo: "kitchen",
   },
@@ -224,7 +224,7 @@ export const amenityGroups: AmenityGroup[] = [
   {
     title: "Kitchen & Dining",
     icon: "utensils",
-    items: ["Fully equipped kitchen", "Private chef on request", "Kerala & continental menus", "Tea & filter coffee station", "Stocked pantry to request"],
+    items: ["Fully equipped kitchen", "Kerala & continental menus", "Tea & filter coffee station", "Stocked pantry to request"],
   },
   {
     title: "Peace of Mind",
@@ -243,7 +243,7 @@ export type Experience = { title: string; body: string; tone: string; photo?: Vi
 export const experiences: Experience[] = [
   { title: "Private Kerala Sadya", body: "A traditional feast on banana leaf, prepared fresh and laid out for your table at lunch.", tone: "brass", photo: "keralaSadya" },
   { title: "Candlelight Poolside Dinner", body: "A curated menu served by the water, lamps lit, the garden quiet around you.", tone: "monsoon", photo: "poolsideDinner" },
-  { title: "Malabar Seafood Evening", body: "The day's catch from the coast, cooked north-Kerala style by your private chef.", tone: "palm", photo: "seafood" },
+  { title: "Malabar Seafood Evening", body: "The day's catch from the coast, cooked north-Kerala style for your table.", tone: "palm", photo: "seafood" },
   { title: "Celebration Setup", body: "Flowers, lights and a cake for anniversaries and milestones. Tell us the occasion.", tone: "sand", photo: "celebration" },
   { title: "Slow Morning Wellness", body: "Yoga on the deck and an in-villa Ayurvedic massage, arranged with local practitioners.", tone: "palm", photo: "poolYoga" },
   { title: "Local Discovery", body: "A gentle guide to backwater kayaking, Theyyam season, Kannur's beaches and quiet corners.", tone: "monsoon", photo: "localDiscovery" },
@@ -252,15 +252,15 @@ export const experiences: Experience[] = [
 export type FAQ = { q: string; a: string; group: string };
 
 export const faqs: FAQ[] = [
-  { group: "Stay", q: "What are the check-in and check-out times?", a: "Check-in is from 2:00 PM and check-out is by 11:00 AM. Early check-in or late check-out can often be arranged, just ask ahead and we will do our best." },
+  { group: "Stay", q: "What are the check-in and check-out times?", a: "Check-in is from 2:00 PM and check-out by 11:00 AM; early or late arrangements can often be made, just ask ahead." },
   { group: "Stay", q: "Is the whole villa private to my group?", a: "Yes. Othayoth is only ever booked as a whole villa, so the home, garden and pool are exclusively yours for the length of your stay." },
-  { group: "Pool", q: "Are there rules for the private pool?", a: "The pool is yours to enjoy through the day. For everyone's safety, children should always be supervised and we ask that glassware is kept away from the water. There is no lifeguard on site." },
-  { group: "Food", q: "What are the food options?", a: "You can cook in the full kitchen, or book our private chef for Kerala and continental menus. A welcome sadya, seafood evenings and candlelight dinners can all be arranged in advance." },
-  { group: "Guests", q: "Can we have extra guests or day visitors?", a: "The villa comfortably sleeps up to six. Extra guests and day visitors can be accommodated on request for a small charge, so we can prepare properly and keep things comfortable." },
-  { group: "Guests", q: "Are children welcome?", a: "Very much so. We provide a baby cot and high chair on request. Please note the open pool and garden, and keep little ones supervised." },
+  { group: "Pool", q: "Are there rules for the private pool?", a: "The pool is yours to enjoy through the day; there is no lifeguard, so please keep children supervised and glassware away from the water." },
+  { group: "Food", q: "What are the food options?", a: "Cook in the full kitchen, or arrange Kerala and continental menus with us, including sadya, seafood evenings and candlelight dinners." },
+  { group: "Guests", q: "Can we have extra guests or day visitors?", a: "The villa sleeps up to six; extra guests and day visitors can be accommodated on request for a small charge." },
+  { group: "Guests", q: "Are children welcome?", a: "Very much so. We provide a baby cot and high chair on request, just keep little ones supervised near the open pool and garden." },
   { group: "Guests", q: "Do you allow pets?", a: "We love animals, but to keep the villa comfortable for every guest we are not able to accommodate pets at this time." },
   { group: "Stay", q: "Is there a noise policy?", a: "Celebrations are welcome. We simply ask that music is kept gentle after 10:30 PM out of respect for the quiet neighbourhood around us." },
-  { group: "Booking", q: "What is the cancellation policy?", a: "Free cancellation up to 14 days before check-in with a full refund of any advance. Within 14 days the advance is non-refundable, though we will always try to help you reschedule." },
+  { group: "Booking", q: "What is the cancellation policy?", a: "Free cancellation up to 14 days before check-in; inside that window the advance is non-refundable, though we will always try to help you reschedule." },
   { group: "Practical", q: "Is parking available?", a: "Yes, there is secure, gated parking on the property for two to three cars, right at the entrance." },
   { group: "Practical", q: "How reliable is the power supply?", a: "The villa has full 24x7 power backup, so a monsoon outage never interrupts your stay." },
 ];
@@ -269,7 +269,7 @@ export type Review = { name: string; from: string; quote: string; stars: number 
 
 export const reviews: Review[] = [
   { name: "Divya R.", from: "Bengaluru", stars: 5, quote: "We had the whole place to ourselves and never wanted to leave the pool. The sadya on arrival set the tone. This is how Kerala should feel." },
-  { name: "Arun & Meera", from: "Chennai", stars: 5, quote: "Booked it for our anniversary. The candlelight dinner by the water was quietly perfect. Vinod took care of everything without ever being in the way." },
+  { name: "Arun & Meera", from: "Chennai", stars: 5, quote: "Booked it for our anniversary. The candlelight dinner by the water was quietly perfect. Midhun took care of everything without ever being in the way." },
   { name: "The Kapoor family", from: "Mumbai", stars: 5, quote: "Three generations, one villa, endless space for the kids. Clean, calm and genuinely private. We are already planning the next trip." },
   { name: "Sneha T.", from: "Kochi", stars: 5, quote: "Rain on the tiled roof, warm light inside, brilliant food. The most restful three days we have had in years." },
 ];

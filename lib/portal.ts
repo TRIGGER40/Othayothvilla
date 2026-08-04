@@ -19,8 +19,8 @@ export const portalNav: PortalLink[] = [
 export const checkInSteps: { title: string; body: string }[] = [
   { title: "Reaching the villa", body: "Follow Varam-Kadangode Road to the villa, near O V Madhavan Stupam. The last stretch is a quiet lane. Your live location pin is in the dashboard, and the caretaker will meet you at the gate." },
   { title: "Parking", body: "Drive straight in through the gate. Secure parking for two to three cars is on your right, just inside the entrance." },
-  { title: "Getting in", body: "Vinod will welcome you and hand over the keys. If you arrive after dark, the veranda and path lights are already on for you." },
-  { title: "On arrival", body: "Settle in with a welcome drink, take a walk through the house and garden, and tell us if you would like the pool towels set out." },
+  { title: "Getting in", body: "Midhun will welcome you and hand over the keys. If you arrive after dark, the veranda and path lights are already on for you." },
+  { title: "On arrival", body: "Settle in with a welcome drink while we set out your pool towels." },
 ];
 
 export type GuideItem = { title: string; icon: string; steps: string[] };
@@ -48,7 +48,7 @@ export type ServiceOption = {
 export const services: ServiceOption[] = [
   { id: "housekeeping", title: "Housekeeping", blurb: "Request a tidy-up, a bin clear or a full service at a time that suits you.", icon: "hand", cta: "Request housekeeping" },
   { id: "towels", title: "Fresh towels & linen", blurb: "Extra towels, pool towels or a linen change, brought over promptly.", icon: "leaf", cta: "Request towels" },
-  { id: "chef", title: "Private chef & meals", blurb: "Breakfast, a Kerala sadya, seafood dinners or a full-day chef.", icon: "utensils", cta: "Plan a meal" },
+  { id: "chef", title: "Meals & catering", blurb: "Breakfast, a Kerala sadya, seafood dinners or a full day of catering.", icon: "utensils", cta: "Plan a meal" },
   { id: "celebration", title: "Celebration setup", blurb: "Flowers, lights and a cake for anniversaries and milestones.", icon: "sparkle", cta: "Set up a celebration" },
   { id: "transport", title: "Transport help", blurb: "Airport transfers, a car for the day or local drop-offs.", icon: "car", cta: "Arrange transport" },
   { id: "maintenance", title: "Maintenance", blurb: "Something not working as it should? We will look at it right away.", icon: "wrench", cta: "Report an issue" },
@@ -105,7 +105,7 @@ export const recommendations: Recommendation[] = [
 ];
 
 export const emergencyContacts: { label: string; value: string; href?: string; note?: string }[] = [
-  { label: "Your host, Vinod", value: "+91 98470 00000", href: "tel:+919847000000", note: "First call for anything, any hour" },
+  { label: "Your host, Midhun", value: "+91 98470 00000", href: "tel:+919847000000", note: "First call for anything, any hour" },
   { label: "Othayoth Villa 24x7 support", value: "+91 98470 11111", href: "tel:+919847011111", note: "If you cannot reach the host" },
   { label: "Ambulance", value: "108", href: "tel:108" },
   { label: "Police", value: "100", href: "tel:100" },

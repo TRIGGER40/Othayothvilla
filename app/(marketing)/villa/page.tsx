@@ -45,8 +45,11 @@ export default function VillaPage() {
             </h2>
             <div className="mt-6 space-y-4 text-lg leading-relaxed text-stone-400">
               <p>
-                Othayoth is an old tharavad name, carried forward from the house
-                that stood on this land before the villa did.
+                Othayoth is our family&rsquo;s tharavad name. Our ancestral
+                tharavadu stands right next to this villa, built in the 1950s,
+                and the older family home, a kilometre up the road, dates back
+                to the 1800s. We still gather there every year for our Theyyam
+                ritual.
               </p>
               <p>
                 Built with local hands and materials: teak, cane, warm stone,
@@ -57,22 +60,22 @@ export default function VillaPage() {
           </Reveal>
           <Reveal delay={120} className="grid gap-4">
             <Photo
-              src={villaPhotos.livingRoom.src}
-              alt={villaPhotos.livingRoom.alt}
-              label="Dressed in teak and cane"
+              src={villaPhotos.familyArchive1930s.src}
+              alt={villaPhotos.familyArchive1930s.alt}
+              label="Our great-grandmother, 1930s"
               aspect="aspect-[5/4]"
             />
             <div className="grid grid-cols-2 gap-4">
               <Photo
-                src={villaPhotos.kitchen.src}
-                alt={villaPhotos.kitchen.alt}
-                label="The kitchen"
+                src={villaPhotos.familyArchive1935.src}
+                alt={villaPhotos.familyArchive1935.alt}
+                label="Our grandmother, 1935"
                 aspect="aspect-square"
               />
               <Photo
-                src={villaPhotos.privateSitout.src}
-                alt={villaPhotos.privateSitout.alt}
-                label="Evening brass"
+                src={villaPhotos.familyArchive1970s.src}
+                alt={villaPhotos.familyArchive1970s.alt}
+                label="Three generations, 1970s"
                 aspect="aspect-square"
               />
             </div>

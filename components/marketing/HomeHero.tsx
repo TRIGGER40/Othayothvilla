@@ -27,7 +27,7 @@ export function HomeHero() {
             <Icon name="pin" size={14} className="text-brass-200" /> {site.location}
           </p>
           <h1 className="mt-6 text-display-xl text-balance text-linen-50">
-            A private-pool villa on the riverside in Kannur
+            Experience a private pool villa in the heart of Kannur
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-linen-100/90 sm:text-xl">
             The whole 2-bedroom home, exclusively yours. Close to Kannur&rsquo;s

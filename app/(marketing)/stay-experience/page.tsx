@@ -45,7 +45,7 @@ const moments: {
   {
     icon: "utensils",
     title: "Dining moments",
-    body: "Sadya on banana leaf, Malabar seafood, breakfast by the pool. Cook in the full kitchen or leave it to a private chef.",
+    body: "Sadya on banana leaf, Malabar seafood, breakfast by the pool. Cook in the full kitchen or let us arrange it for you.",
     tone: "brass",
     motif: "sun",
     photo: "kitchen",

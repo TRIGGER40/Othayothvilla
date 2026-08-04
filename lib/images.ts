@@ -93,6 +93,18 @@ export const villaPhotos = {
     src: "/images/stay-experience-private-pool.webp",
     alt: "Close-up of the private pool at dusk with lantern reflections at Othayoth Villa, Kannur",
   },
+  familyArchive1930s: {
+    src: "/images/villa-family-archive-1930s.webp",
+    alt: "A 1930s family photograph of the Othayoth tharavadu, showing the owner's great-grandmother",
+  },
+  familyArchive1935: {
+    src: "/images/villa-family-archive-1935.webp",
+    alt: "A 1935 family photograph of the Othayoth tharavadu, the owner's grandmother on the right",
+  },
+  familyArchive1970s: {
+    src: "/images/villa-family-archive-1970s.webp",
+    alt: "A 1970s family photograph at the Othayoth tharavadu, the owner's grandmother, mother and sisters",
+  },
 } as const;
 
 export type VillaPhotoKey = keyof typeof villaPhotos;

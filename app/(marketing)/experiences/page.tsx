@@ -12,7 +12,7 @@ import { experiences } from "@/lib/content";
 import { villaPhotos } from "@/lib/images";
 
 export const metadata: Metadata = pageMeta("experiences", {
-  title: "Experiences | Private Chef & Stays in Kannur",
+  title: "Experiences | Curated Stays in Kannur",
   description:
     "Private Kerala sadya, Malabar seafood dinners, candlelight evenings by the pool, Ayurvedic wellness and local discovery, curated at Othayoth Villa, Kannur.",
 });

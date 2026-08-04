@@ -15,58 +15,6 @@ import { villaPhotos } from "@/lib/images";
 
 const GOOGLE_MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${site.geo.lat},${site.geo.lng}`;
 
-/**
- * Distances/times for the first six entries come from the owner's own
- * illustrated local map (Varam Kadavu, Kattampally, Parassinikadavu,
- * Payyambalam, St. Angelo Fort, Muzhappilangad, Neeliyar Kottam). Airport
- * and railway distances are not on that map and are marked approximate below
- * until confirmed against an actual drive.
- */
-const attractions: { name: string; distance: string; duration?: string; body: string }[] = [
-  {
-    name: "Varam Kadavu",
-    distance: "≈ 2.5 km",
-    duration: "4 min",
-    body: "A riverside walk and ferry crossing on the Valapattanam, right by the villa.",
-  },
-  {
-    name: "Kattampally Backwater Kayaking",
-    distance: "≈ 8.5 km",
-    duration: "16 min",
-    body: "Quiet paddy-fringed canals just outside Kannur town, best explored by kayak.",
-  },
-  {
-    name: "Parassinikadavu Sri Muthappan Temple",
-    distance: "≈ 14.8 km",
-    duration: "20 min",
-    body: "A riverside shrine famed for its daily rituals and Theyyam-inspired worship, open to visitors year-round.",
-  },
-  {
-    name: "Payyambalam Beach",
-    distance: "≈ 10.5 km",
-    duration: "20 min",
-    body: "Kannur's promenade beach, with landscaped lawns and one of the region's best sunset views.",
-  },
-  {
-    name: "St. Angelo Fort",
-    distance: "≈ 10.5 km",
-    duration: "20 min",
-    body: "A 16th-century Portuguese fort over the Arabian Sea, with views of the fishing harbour.",
-  },
-  {
-    name: "Muzhappilangad Drive-in Beach",
-    distance: "≈ 16 km",
-    duration: "30 min",
-    body: "Asia's longest drive-in beach, a 4 km stretch of firm, driveable golden sand.",
-  },
-  {
-    name: "Neeliyar Kottam",
-    distance: "≈ 20 km",
-    duration: "36 min",
-    body: "A Theyyam performance shrine, October to May. Ask us to help time your visit around a ritual.",
-  },
-];
-
 export const metadata: Metadata = pageMeta("location", {
   title: "Location | Riverside Villa Near Kannur, Kerala",
   description:
@@ -76,9 +24,9 @@ export const metadata: Metadata = pageMeta("location", {
 const reach: { icon: IconName; title: string; body: string }[] = [
   // TODO: confirm these against an actual drive; the owner's local map does
   // not cover the airport or railway station.
-  { icon: "map", title: "By air", body: "Kannur International Airport (CNN) is roughly 19 km away, an approximate 30-minute drive. We can help arrange a pickup." },
-  { icon: "arrow-right", title: "By train", body: "Kannur railway station is roughly 10 km away, well connected along the coastal line. We can arrange a pickup." },
-  { icon: "car", title: "By road", body: "Reached via Varam-Kadangode Road, near O V Madhavan Stupam. Secure parking for two to three cars is right at the villa gate." },
+  { icon: "map", title: "By air", body: "Kannur International Airport (CNN), roughly 19 km away. We can help arrange a pickup." },
+  { icon: "arrow-right", title: "By train", body: "Kannur railway station, roughly 10 km away on the coastal line." },
+  { icon: "car", title: "By road", body: "Via Varam-Kadangode Road, near O V Madhavan Stupam, with secure parking at the gate." },
 ];
 
 export default function LocationPage() {
@@ -145,6 +93,17 @@ export default function LocationPage() {
                 Exact gate directions and a live location link are shared with
                 confirmed guests in the stay portal.
               </p>
+              <p className="mt-4 text-sm leading-relaxed text-stone-400">
+                See{" "}
+                <Link href="/experiences" className="text-palm-600 underline decoration-brass-300 underline-offset-4 hover:decoration-brass-400">
+                  curated experiences
+                </Link>{" "}
+                or{" "}
+                <Link href="/book" className="text-palm-600 underline decoration-brass-300 underline-offset-4 hover:decoration-brass-400">
+                  check availability
+                </Link>
+                .
+              </p>
             </Card>
           </Reveal>
         </div>
@@ -174,47 +133,6 @@ export default function LocationPage() {
             </Reveal>
           ))}
         </div>
-      </Section>
-
-      {/* Explore North Kerala */}
-      <Section tone="linen" size="lg">
-        <div className="mx-auto max-w-3xl text-center">
-          <SectionHeading
-            eyebrow="Explore North Kerala"
-            title="The best of Kannur, a short drive away"
-            intro="Backwater canals, Theyyam shrines and some of Kerala's best beaches, all close by, without the crowds of the south."
-            align="center"
-            className="mx-auto"
-          />
-        </div>
-        <div className="mx-auto mt-12 grid max-w-4xl gap-6 sm:grid-cols-2">
-          {attractions.map((a, i) => (
-            <Reveal key={a.name} delay={i * 70}>
-              <article className="h-full rounded-2xl border border-stone-200/60 bg-linen-50 p-6 shadow-soft">
-                <div className="flex items-start justify-between gap-3">
-                  <h3 className="font-serif text-xl text-palm-600">{a.name}</h3>
-                  <span className="shrink-0 rounded-full bg-brass-100 px-3 py-1 text-right text-xs font-medium text-brass-500">
-                    {a.distance}
-                    {a.duration && <span className="mt-0.5 block text-brass-400">{a.duration}</span>}
-                  </span>
-                </div>
-                <p className="mt-3 leading-relaxed text-stone-400">{a.body}</p>
-              </article>
-            </Reveal>
-          ))}
-        </div>
-        <p className="mx-auto mt-10 max-w-2xl text-center leading-relaxed text-stone-400">
-          Explore by day, come home to a private chef and candlelight dinner by
-          night. See{" "}
-          <Link href="/experiences" className="text-palm-600 underline decoration-brass-300 underline-offset-4 hover:decoration-brass-400">
-            curated experiences
-          </Link>{" "}
-          or{" "}
-          <Link href="/book" className="text-palm-600 underline decoration-brass-300 underline-offset-4 hover:decoration-brass-400">
-            check availability
-          </Link>
-          .
-        </p>
       </Section>
 
       {/* How to reach */}

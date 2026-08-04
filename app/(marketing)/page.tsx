@@ -33,11 +33,11 @@ export default function HomePage() {
             { icon: "pool", label: "Private pool" },
             { icon: "key", label: "Whole villa, exclusively" },
             { icon: "users", label: "Sleeps 6" },
-            { icon: "pin", label: "Riverside, Kannur" },
+            { icon: "pin", label: "9 km from Kannur town" },
             { icon: "map", label: "Near beaches & forts" },
             { icon: "wifi", label: "Wi-Fi" },
             { icon: "car", label: "Free parking" },
-            { icon: "utensils", label: "Chef on request" },
+            { icon: "sparkle", label: "Curated experiences" },
           ].map((f) => (
             <li key={f.label} className="flex items-center gap-2 text-sm font-medium text-palm-600">
               <Icon name={f.icon as IconName} size={16} className="text-brass-400" />
@@ -127,12 +127,6 @@ export default function HomePage() {
               eyebrow="Why Othayoth"
               title="A private pool villa in Kannur, made for the people you bring"
             />
-            <div className="mt-6 leading-relaxed text-stone-400">
-              <p>
-                A whole home to yourselves, not a hotel room. Private pool, garden
-                and both bedrooms, for couples, families or friends.
-              </p>
-            </div>
             <ul className="mt-6 space-y-3 text-stone-400">
               <li>
                 Riverside in Varam, minutes from{" "}
@@ -142,8 +136,8 @@ export default function HomePage() {
                 , ≈19 km from Kannur Airport (CNN).
               </li>
               <li>
-                Hosted, never crowded. Private chef, sadya, seafood dinners and
-                candlelight evenings, arranged through{" "}
+                Hosted, never crowded. Sadya, seafood dinners and candlelight
+                evenings, arranged through{" "}
                 <Link href="/stay-experience" className="text-palm-600 underline decoration-brass-300 underline-offset-4 hover:decoration-brass-400">
                   the stay experience
                 </Link>{" "}
@@ -164,8 +158,6 @@ export default function HomePage() {
                   ["Property", "Whole 2-bedroom pool villa"],
                   ["Sleeps", "Up to 6 guests"],
                   ["Pool", "Private, screened, yours only"],
-                  ["Pricing", "Contact us for a custom rate"],
-                  ["Kannur town", "≈ 9 km"],
                   ["Payyambalam Beach", "≈ 10.5 km"],
                   ["Kannur Airport (CNN)", "≈ 19 km"],
                 ].map(([k, v]) => (
@@ -297,7 +289,7 @@ export default function HomePage() {
             className="mb-10"
           />
           <ul className="mx-auto grid max-w-2xl gap-3 text-left">
-            {faqs.slice(0, 4).map((f) => (
+            {faqs.slice(0, 3).map((f) => (
               <li key={f.q}>
                 <Link
                   href="/faq"

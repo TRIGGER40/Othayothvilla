@@ -13,7 +13,7 @@ import { amenityGroups } from "@/lib/content";
 export const metadata: Metadata = pageMeta("amenities", {
   title: "Amenities | Private Pool Villa in Kannur, Kerala",
   description:
-    "Private pool, air-conditioning, smart TV, full kitchen, private chef, power backup, parking and daily housekeeping at Othayoth Villa in Kannur.",
+    "Private pool, air-conditioning, smart TV, full kitchen, power backup, parking and daily housekeeping at Othayoth Villa in Kannur.",
 });
 
 export default function AmenitiesPage() {

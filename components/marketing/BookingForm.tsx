@@ -132,7 +132,7 @@ export function BookingForm() {
             <option value="honeymoon">Honeymoon</option>
           </Select>
         </Field>
-        <Field label="Special requests" htmlFor="requests" hint="Dietary needs, a chef, celebration setup, early arrival." className="sm:col-span-2">
+        <Field label="Special requests" htmlFor="requests" hint="Dietary needs, celebration setup, early arrival." className="sm:col-span-2">
           <Textarea id="requests" name="requests" placeholder="Tell us anything that would make your stay better." />
         </Field>
       </div>
