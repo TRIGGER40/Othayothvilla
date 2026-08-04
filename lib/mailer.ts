@@ -46,11 +46,17 @@ export async function sendBookingRequestNotification(req: BookingRequest): Promi
   ].filter((l): l is string => l !== null);
 
   const transport = getTransport();
-  await transport.sendMail({
+  const info = await transport.sendMail({
     from: `"Othayoth Villa" <${SENDER_ADDRESS}>`,
     to: BOOKINGS_INBOX,
     replyTo: req.email,
     subject: `New booking request: ${req.name}, ${req.checkIn} to ${req.checkOut}`,
     text: lines.join("\n"),
+  });
+  console.log("Booking request email accepted by SMTP server:", {
+    messageId: info.messageId,
+    response: info.response,
+    accepted: info.accepted,
+    rejected: info.rejected,
   });
 }
