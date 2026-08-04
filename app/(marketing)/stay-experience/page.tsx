@@ -32,6 +32,7 @@ const moments: {
     body: "The heart of the home. Swim at dawn, drift through the afternoon, or sit at the water's edge as the light softens. It is only ever yours.",
     tone: "monsoon",
     motif: "water",
+    photo: "privatePool",
   },
   {
     icon: "leaf",
@@ -55,6 +56,7 @@ const moments: {
     body: "Yoga on the deck, an in-villa Ayurvedic massage, and the deep quiet that lets you actually rest.",
     tone: "sand",
     motif: "arch",
+    photo: "poolYoga",
   },
   {
     icon: "sparkle",
@@ -62,6 +64,7 @@ const moments: {
     body: "Tell us the occasion and we will set the scene with flowers, lights and a cake, then leave the evening to you.",
     tone: "brass",
     motif: "sun",
+    photo: "celebration",
   },
   {
     icon: "book",

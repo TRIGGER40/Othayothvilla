@@ -85,6 +85,14 @@ export const villaPhotos = {
     src: "/images/location-satellite-map.webp",
     alt: "Satellite map showing Othayoth House in Varam, near Kannur, Kerala",
   },
+  bookCalendar: {
+    src: "/images/book-hero-calendar.webp",
+    alt: "An Othayoth Villa branded calendar on the coffee table, pool visible through the glass doors beyond",
+  },
+  privatePool: {
+    src: "/images/stay-experience-private-pool.webp",
+    alt: "Close-up of the private pool at dusk with lantern reflections at Othayoth Villa, Kannur",
+  },
 } as const;
 
 export type VillaPhotoKey = keyof typeof villaPhotos;

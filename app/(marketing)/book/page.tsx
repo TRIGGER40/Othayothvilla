@@ -29,8 +29,7 @@ export default function BookPage() {
         eyebrow="Check Availability"
         title="Tell us your dates"
         intro="Share when you would like to come and who is joining. We will hold the villa and reply the same day."
-        tone="monsoon"
-        motif="water"
+        photo="bookCalendar"
       />
 
       <Section tone="linen" size="lg">
