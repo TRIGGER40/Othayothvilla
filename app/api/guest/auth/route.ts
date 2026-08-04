@@ -59,8 +59,8 @@ export async function POST(req: NextRequest) {
   }
 
   const reservation = validToken
-    ? findReservationByToken(token)
-    : findReservationByRef(bookingRef, phoneLast4);
+    ? await findReservationByToken(token)
+    : await findReservationByRef(bookingRef, phoneLast4);
 
   if (!reservation) {
     return NextResponse.json({ ok: false, error: GENERIC_ERROR }, { status: 401 });

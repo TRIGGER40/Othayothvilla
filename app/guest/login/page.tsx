@@ -70,16 +70,6 @@ export default function GuestLoginPage() {
             </Suspense>
           </div>
 
-          <div className="mt-8 rounded-2xl bg-palm-500/8 p-4 text-sm text-stone-400">
-            <p className="flex items-center gap-2 font-medium text-palm-600">
-              <Icon name="key" size={16} className="text-brass-400" /> Demo access
-            </p>
-            <p className="mt-1.5">
-              Try booking reference <span className="font-mono text-palm-600">OTV-4821</span> with phone digits{" "}
-              <span className="font-mono text-palm-600">7788</span>.
-            </p>
-          </div>
-
           <p className="mt-8 text-center text-sm text-stone-400">
             Not a guest yet?{" "}
             <Link href="/book" className="text-brass-500 underline underline-offset-4 hover:text-brass-400">

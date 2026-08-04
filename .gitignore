@@ -31,3 +31,8 @@ yarn-error.log*
 /source-photos
 .vercel
 .env*
+
+# auto-installed by `vercel integration add neon`
+/.agents
+.claude/skills
+skills-lock.json

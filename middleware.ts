@@ -5,6 +5,8 @@ import { NextResponse, type NextRequest } from "next/server";
 // as "unsupported" for the edge, even though this constant itself is trivial.
 // Keep this value in sync with lib/session-config.ts's SESSION_COOKIE.
 const SESSION_COOKIE = "othayoth_stay";
+// Keep in sync with lib/admin-auth.ts's ADMIN_SESSION_COOKIE.
+const ADMIN_SESSION_COOKIE = "otv_admin_session";
 
 /**
  * Middleware does two things on every request:
@@ -55,8 +57,22 @@ export function middleware(req: NextRequest) {
     return redirect;
   }
 
+  // Guard the admin panel the same way. /api/admin routes re-check the
+  // session server-side themselves, since middleware is a presence check only.
+  const isProtectedAdmin = pathname.startsWith("/admin") && pathname !== "/admin/login";
+
+  if (isProtectedAdmin && !req.cookies.get(ADMIN_SESSION_COOKIE)?.value) {
+    const loginUrl = new URL("/admin/login", req.url);
+    const redirect = NextResponse.redirect(loginUrl);
+    redirect.headers.set("Content-Security-Policy", CSP);
+    return redirect;
+  }
+
   const res = NextResponse.next();
   res.headers.set("Content-Security-Policy", CSP);
+  if (pathname.startsWith("/admin")) {
+    res.headers.set("X-Robots-Tag", "noindex, nofollow");
+  }
   return res;
 }
 

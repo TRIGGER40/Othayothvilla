@@ -40,7 +40,9 @@ export type IconName =
   | "pin"
   | "mail"
   | "chevron-down"
-  | "logout";
+  | "logout"
+  | "link"
+  | "trash";
 
 const paths: Record<IconName, React.ReactNode> = {
   pool: (
@@ -246,6 +248,21 @@ const paths: Record<IconName, React.ReactNode> = {
       <path d="M10 4H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h4" />
       <path d="M16 17l5-5-5-5" />
       <path d="M9 12h12" />
+    </>
+  ),
+  link: (
+    <>
+      <path d="M9.5 14.5 14.5 9.5" />
+      <path d="M11 6.5 12.6 4.9a3.5 3.5 0 1 1 5 5L16 11.5" />
+      <path d="M13 17.5 11.4 19.1a3.5 3.5 0 1 1-5-5L8 12.5" />
+    </>
+  ),
+  trash: (
+    <>
+      <path d="M5 7h14" />
+      <path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" />
+      <path d="M7 7l1 13a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2l1-13" />
+      <path d="M10 11v6M14 11v6" />
     </>
   ),
 };

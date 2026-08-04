@@ -1,15 +1,12 @@
 import "server-only";
+import { randomBytes } from "node:crypto";
+import { sql } from "@/lib/db";
 
 /**
- * Placeholder reservation store.
- *
- * In production this module would be backed by your PMS / booking database.
- * The shape here is what the guest portal and auth layer depend on, so the
- * backend integration is a drop-in: implement `findReservationByToken` and
- * `findReservationByRef` against your data source and keep the return type.
- *
- * Access is STAY-ONLY. Every reservation carries an opaque, high-entropy
- * access token (the magic-link secret). Nothing here is a permanent account.
+ * Reservation store, backed by Postgres (Neon). Reservations are entered by
+ * the owner through the admin panel (see app/admin) and looked up here for
+ * the stay-only guest portal. Nothing here is a permanent guest account:
+ * access is gated to the stay's access window (see `isWithinAccessWindow`).
  */
 
 export type AddOn = {
@@ -24,7 +21,7 @@ export type Reservation = {
   bookingRef: string;
   guestName: string;
   email: string;
-  /** Last 4 digits of the phone on file — used for the OTP-style fallback. */
+  /** Last 4 digits of the phone on file — used for the booking-ref fallback. */
   phoneLast4: string;
   /** Opaque magic-link secret. Server-issued, never guessable. */
   accessToken: string;
@@ -45,69 +42,57 @@ export type Reservation = {
   hostPhone: string;
 };
 
-/**
- * Demo reservations. The access window for the first record is centred on
- * "today" so the portal is explorable out of the box.
- */
-function isoDaysFromNow(days: number): string {
-  const d = new Date();
-  d.setHours(0, 0, 0, 0);
-  d.setDate(d.getDate() + days);
-  return d.toISOString().slice(0, 10);
-}
+type ReservationRow = {
+  id: string;
+  booking_ref: string;
+  guest_name: string;
+  email: string;
+  phone_last4: string;
+  access_token: string;
+  status: string;
+  package_name: string;
+  guests_adults: number;
+  guests_children: number;
+  check_in: string;
+  check_out: string;
+  check_in_time: string;
+  check_out_time: string;
+  nightly_rate: number;
+  amount_paid: number;
+  balance_due: number;
+  add_ons: AddOn[];
+  special_requests: string | null;
+  wifi_network: string;
+  wifi_password: string;
+  host_name: string;
+  host_phone: string;
+};
 
-const RESERVATIONS: Reservation[] = [
-  {
-    id: "res_othayoth_001",
-    bookingRef: "OTV-4821",
-    guestName: "Ananya & Rohan",
-    email: "guest@example.com",
-    phoneLast4: "7788",
-    // Demo token. Real tokens are issued by the server as 32+ random bytes.
-    accessToken: "demo-stay-token-a1b2c3d4e5f6",
+function rowToReservation(row: ReservationRow): Reservation {
+  return {
+    id: row.id,
+    bookingRef: row.booking_ref,
+    guestName: row.guest_name,
+    email: row.email,
+    phoneLast4: row.phone_last4,
+    accessToken: row.access_token,
     status: "confirmed",
-    packageName: "The Whole Villa · Monsoon Retreat",
-    guests: { adults: 4, children: 2 },
-    checkIn: isoDaysFromNow(-1),
-    checkOut: isoDaysFromNow(2),
-    checkInTime: "2:00 PM",
-    checkOutTime: "11:00 AM",
-    nightlyRate: 24500,
-    amountPaid: 36750,
-    balanceDue: 36750,
-    addOns: [
-      { id: "ao1", label: "Welcome Kerala sadya on arrival", price: 3200, status: "confirmed" },
-      { id: "ao2", label: "In-villa dining · 2 dinners", price: 8600, status: "confirmed" },
-      { id: "ao3", label: "Candlelight poolside dinner", price: 4500, status: "requested" },
-    ],
-    specialRequests: "Celebrating an anniversary on the second night.",
-    wifi: { network: "Othayoth_Villa", password: "coconut-grove-42" },
-    hostName: "Midhun",
-    hostPhone: "+91 98470 00000",
-  },
-  {
-    id: "res_othayoth_002",
-    bookingRef: "OTV-5104",
-    guestName: "The Menon Family",
-    email: "menon@example.com",
-    phoneLast4: "3390",
-    accessToken: "demo-stay-token-9z8y7x6w5v4u",
-    status: "confirmed",
-    packageName: "The Whole Villa · Family Long Weekend",
-    guests: { adults: 6, children: 3 },
-    checkIn: isoDaysFromNow(20),
-    checkOut: isoDaysFromNow(23),
-    checkInTime: "2:00 PM",
-    checkOutTime: "11:00 AM",
-    nightlyRate: 24500,
-    amountPaid: 73500,
-    balanceDue: 0,
-    addOns: [{ id: "ao4", label: "Airport pickup · Kannur (CNN)", price: 2600, status: "confirmed" }],
-    wifi: { network: "Othayoth_Villa", password: "coconut-grove-42" },
-    hostName: "Midhun",
-    hostPhone: "+91 98470 00000",
-  },
-];
+    packageName: row.package_name,
+    guests: { adults: row.guests_adults, children: row.guests_children },
+    checkIn: row.check_in,
+    checkOut: row.check_out,
+    checkInTime: row.check_in_time,
+    checkOutTime: row.check_out_time,
+    nightlyRate: row.nightly_rate,
+    amountPaid: row.amount_paid,
+    balanceDue: row.balance_due,
+    addOns: row.add_ons ?? [],
+    specialRequests: row.special_requests ?? undefined,
+    wifi: { network: row.wifi_network, password: row.wifi_password },
+    hostName: row.host_name,
+    hostPhone: row.host_phone,
+  };
+}
 
 const GRACE_HOURS_AFTER_CHECKOUT = 24;
 const EARLY_ACCESS_HOURS = 72;
@@ -131,31 +116,104 @@ export function isWithinAccessWindow(r: Reservation, now = new Date()): boolean 
   return now >= opensAt && now <= closesAt;
 }
 
-/** Look up by magic-link token (constant work regardless of match). */
-export function findReservationByToken(token: string): Reservation | null {
+// check_in/check_out are DATE columns; the driver otherwise hands back JS
+// Date objects that shift under non-UTC timezones. to_char keeps them as the
+// plain "YYYY-MM-DD" strings the rest of this module (and accessWindow) expects.
+const SELECT_FIELDS = `
+  id, booking_ref, guest_name, email, phone_last4, access_token, status,
+  package_name, guests_adults, guests_children,
+  to_char(check_in, 'YYYY-MM-DD') AS check_in,
+  to_char(check_out, 'YYYY-MM-DD') AS check_out,
+  check_in_time, check_out_time, nightly_rate, amount_paid, balance_due,
+  add_ons, special_requests, wifi_network, wifi_password, host_name, host_phone
+`;
+
+/** Look up by magic-link token. */
+export async function findReservationByToken(token: string): Promise<Reservation | null> {
   if (!token) return null;
-  return RESERVATIONS.find((r) => safeEquals(r.accessToken, token)) ?? null;
+  const rows = (await sql`
+    SELECT ${sql.unsafe(SELECT_FIELDS)} FROM reservations WHERE access_token = ${token} LIMIT 1
+  `) as ReservationRow[];
+  return rows[0] ? rowToReservation(rows[0]) : null;
 }
 
 /** Fallback lookup: booking reference + last 4 of phone. */
-export function findReservationByRef(bookingRef: string, phoneLast4: string): Reservation | null {
+export async function findReservationByRef(
+  bookingRef: string,
+  phoneLast4: string,
+): Promise<Reservation | null> {
   const ref = bookingRef.trim().toUpperCase();
   const last4 = phoneLast4.trim();
-  return (
-    RESERVATIONS.find(
-      (r) => safeEquals(r.bookingRef.toUpperCase(), ref) && safeEquals(r.phoneLast4, last4),
-    ) ?? null
-  );
+  const rows = (await sql`
+    SELECT ${sql.unsafe(SELECT_FIELDS)} FROM reservations
+    WHERE UPPER(booking_ref) = ${ref} AND phone_last4 = ${last4}
+    LIMIT 1
+  `) as ReservationRow[];
+  return rows[0] ? rowToReservation(rows[0]) : null;
 }
 
-export function getReservationById(id: string): Reservation | null {
-  return RESERVATIONS.find((r) => r.id === id) ?? null;
+export async function getReservationById(id: string): Promise<Reservation | null> {
+  const rows = (await sql`
+    SELECT ${sql.unsafe(SELECT_FIELDS)} FROM reservations WHERE id = ${id} LIMIT 1
+  `) as ReservationRow[];
+  return rows[0] ? rowToReservation(rows[0]) : null;
 }
 
-/** Length-independent, timing-safe string comparison. */
-function safeEquals(a: string, b: string): boolean {
-  if (a.length !== b.length) return false;
-  let mismatch = 0;
-  for (let i = 0; i < a.length; i++) mismatch |= a.charCodeAt(i) ^ b.charCodeAt(i);
-  return mismatch === 0;
+/** All reservations, newest first — for the admin panel. */
+export async function listReservations(): Promise<Reservation[]> {
+  const rows = (await sql`
+    SELECT ${sql.unsafe(SELECT_FIELDS)} FROM reservations ORDER BY created_at DESC
+  `) as ReservationRow[];
+  return rows.map(rowToReservation);
+}
+
+export type NewReservationInput = {
+  bookingRef: string;
+  guestName: string;
+  email: string;
+  phoneLast4: string;
+  packageName: string;
+  guestsAdults: number;
+  guestsChildren: number;
+  checkIn: string;
+  checkOut: string;
+  checkInTime: string;
+  checkOutTime: string;
+  nightlyRate: number;
+  amountPaid: number;
+  balanceDue: number;
+  specialRequests?: string;
+  wifiNetwork: string;
+  wifiPassword: string;
+  hostName: string;
+  hostPhone: string;
+};
+
+/** Creates a reservation with a freshly generated id and magic-link token. */
+export async function createReservation(input: NewReservationInput): Promise<Reservation> {
+  const id = `res_${randomBytes(8).toString("hex")}`;
+  const accessToken = randomBytes(32).toString("base64url");
+
+  const rows = (await sql`
+    INSERT INTO reservations (
+      id, booking_ref, guest_name, email, phone_last4, access_token, status,
+      package_name, guests_adults, guests_children, check_in, check_out,
+      check_in_time, check_out_time, nightly_rate, amount_paid, balance_due,
+      special_requests, wifi_network, wifi_password, host_name, host_phone
+    ) VALUES (
+      ${id}, ${input.bookingRef.trim().toUpperCase()}, ${input.guestName}, ${input.email},
+      ${input.phoneLast4}, ${accessToken}, 'confirmed',
+      ${input.packageName}, ${input.guestsAdults}, ${input.guestsChildren},
+      ${input.checkIn}, ${input.checkOut},
+      ${input.checkInTime}, ${input.checkOutTime}, ${input.nightlyRate}, ${input.amountPaid}, ${input.balanceDue},
+      ${input.specialRequests ?? null}, ${input.wifiNetwork}, ${input.wifiPassword}, ${input.hostName}, ${input.hostPhone}
+    )
+    RETURNING ${sql.unsafe(SELECT_FIELDS)}
+  `) as ReservationRow[];
+
+  return rowToReservation(rows[0]);
+}
+
+export async function deleteReservation(id: string): Promise<void> {
+  await sql`DELETE FROM reservations WHERE id = ${id}`;
 }

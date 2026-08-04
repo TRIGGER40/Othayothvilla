@@ -1,5 +1,5 @@
 import "server-only";
-import { createHmac, randomBytes, timingSafeEqual } from "node:crypto";
+import { randomBytes, timingSafeEqual } from "node:crypto";
 import { cookies } from "next/headers";
 import {
   accessWindow,
@@ -8,6 +8,7 @@ import {
   type Reservation,
 } from "@/lib/reservations";
 import { SESSION_COOKIE } from "@/lib/session-config";
+import { b64url, signPayload } from "@/lib/session-secret";
 
 export { SESSION_COOKIE };
 
@@ -34,24 +35,8 @@ type SessionPayload = {
   exp: number;
 };
 
-function getSecret(): string {
-  const secret = process.env.GUEST_SESSION_SECRET;
-  if (!secret || secret.length < 32) {
-    // Fail loudly in production; allow a clearly-marked dev fallback locally.
-    if (process.env.NODE_ENV === "production") {
-      throw new Error("GUEST_SESSION_SECRET must be set (>= 32 chars) in production.");
-    }
-    return "dev-only-insecure-secret-do-not-use-in-production-0000";
-  }
-  return secret;
-}
-
-function b64url(input: Buffer | string): string {
-  return Buffer.from(input).toString("base64url");
-}
-
 function sign(payloadJson: string): string {
-  return createHmac("sha256", getSecret()).update(payloadJson).digest("base64url");
+  return signPayload(payloadJson);
 }
 
 /** Build a signed session token for a reservation, clamped to its access window. */
@@ -107,7 +92,7 @@ export async function getCurrentReservation(): Promise<Reservation | null> {
   const payload = verifySessionToken(token);
   if (!payload) return null;
 
-  const reservation = getReservationById(payload.rid);
+  const reservation = await getReservationById(payload.rid);
   if (!reservation) return null;
   if (!isWithinAccessWindow(reservation)) return null;
 
