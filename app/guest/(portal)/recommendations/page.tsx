@@ -14,6 +14,7 @@ export default async function RecommendationsPage() {
         eyebrow="Around the villa"
         title="Our local favourites"
         intro="Hand-picked places we love, close to home. Ask your host to book a table or arrange a car."
+        backHref="/guest/dashboard"
       />
 
       <div className="space-y-8">

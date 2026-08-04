@@ -53,6 +53,38 @@ export const villaPhotos = {
     src: "/images/gallery-villa-exterior.webp",
     alt: "Othayoth Villa exterior at dusk framed by coconut palms, private pool villa in Kannur, Kerala",
   },
+  poolsideDinner: {
+    src: "/images/experience-poolside-dinner.webp",
+    alt: "Candlelight table set poolside for a private dinner at Othayoth Villa, Kannur",
+  },
+  seafood: {
+    src: "/images/experience-seafood.webp",
+    alt: "Malabar seafood, banana-leaf grilled fish and curry, at Othayoth Villa, Kannur",
+  },
+  keralaSadya: {
+    src: "/images/experience-kerala-sadya.webp",
+    alt: "Traditional Kerala sadya laid on banana leaves at Othayoth Villa, Kannur",
+  },
+  localDiscovery: {
+    src: "/images/experience-local-discovery.webp",
+    alt: "A Theyyam ritual performance in the forest near Othayoth Villa, Kannur, Kerala",
+  },
+  celebration: {
+    src: "/images/experience-celebration.webp",
+    alt: "Candlelit anniversary celebration setup at Othayoth Villa, private pool villa in Kannur",
+  },
+  gardenGames: {
+    src: "/images/experience-hero-garden-games.webp",
+    alt: "A carrom board and beanbags set along the lantern-lit garden path at Othayoth Villa, Kannur",
+  },
+  northKeralaCoast: {
+    src: "/images/location-north-kerala-coast.webp",
+    alt: "A quiet, unspoiled beach on the North Kerala coast near Kannur",
+  },
+  satelliteMap: {
+    src: "/images/location-satellite-map.webp",
+    alt: "Satellite map showing Othayoth House in Varam, near Kannur, Kerala",
+  },
 } as const;
 
 export type VillaPhotoKey = keyof typeof villaPhotos;

@@ -32,7 +32,7 @@ export default function ExperiencesPage() {
         eyebrow="Experiences"
         title="Kerala hospitality, arranged around you"
         intro="Curated, unhurried and entirely optional. Add what you like when you book, or decide once you have settled in."
-        photo="privateSitout"
+        photo="gardenGames"
       />
 
       <Section tone="linen" size="lg">

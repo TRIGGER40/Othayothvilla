@@ -28,7 +28,9 @@ export default function GuestLoginPage() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-palm-700/80 via-palm-600/40 to-palm-600/20" />
         <div className="relative flex h-full flex-col justify-between p-12 text-linen-100">
-          <Wordmark invert />
+          <Link href="/" aria-label={`${site.name} home`}>
+            <Wordmark invert />
+          </Link>
           <div>
             <p className="eyebrow text-brass-200">Your stay, in your pocket</p>
             <h1 className="mt-4 max-w-md text-display-md text-linen-50">
@@ -49,7 +51,9 @@ export default function GuestLoginPage() {
       <div className="flex flex-col justify-center bg-linen-100 px-6 py-12 sm:px-12">
         <div className="mx-auto w-full max-w-md">
           <div className="lg:hidden">
-            <Wordmark />
+            <Link href="/" aria-label={`${site.name} home`}>
+              <Wordmark />
+            </Link>
           </div>
           <div className="mt-8 lg:mt-0">
             <p className="eyebrow mb-3">Guest portal</p>

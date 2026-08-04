@@ -26,12 +26,12 @@ export function LogoutButton({ className, compact = false }: { className?: strin
       disabled={busy}
       className={cn(
         "inline-flex items-center gap-2 rounded-full text-sm text-stone-400 transition-colors hover:text-palm-600 disabled:opacity-50",
-        !compact && "px-3 py-2",
+        compact ? "px-3 py-2" : "px-4 py-2.5",
         className,
       )}
     >
       <Icon name="logout" size={18} />
-      {!compact && (busy ? "Signing out" : "Sign out")}
+      {busy ? "Signing out" : "Logout"}
     </button>
   );
 }

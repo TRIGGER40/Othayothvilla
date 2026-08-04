@@ -15,6 +15,7 @@ export default async function HouseGuidePage() {
         eyebrow="House guide"
         title="How everything works"
         intro="A quick guide to living in the villa. Everything is where you would expect, and your host is a call away if not."
+        backHref="/guest/dashboard"
       />
 
       <WifiCard network={r.wifi.network} password={r.wifi.password} />

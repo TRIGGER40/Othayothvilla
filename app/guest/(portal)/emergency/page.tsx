@@ -14,6 +14,7 @@ export default async function EmergencyPage() {
         eyebrow="Emergency info"
         title="Help, any hour"
         intro="Save your host's number now. In any emergency, call your host first, then the services below."
+        backHref="/guest/dashboard"
       />
 
       {/* Contacts */}

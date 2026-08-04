@@ -14,6 +14,7 @@ export default async function ServicesPage() {
         eyebrow="Services & requests"
         title="Anything you need, just ask"
         intro="Send a request and your host will confirm shortly. Most things can be arranged the same day."
+        backHref="/guest/dashboard"
       />
 
       <RequestForm />

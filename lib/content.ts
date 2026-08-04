@@ -25,8 +25,8 @@ export const site = {
     postalCode: "670594",
     country: "IN",
   },
-  // Exact coordinate supplied by the owner for the property.
-  geo: { lat: 11.904554, lng: 75.410521 },
+  // Exact coordinate from the "Othayoth House" pin on Google Maps.
+  geo: { lat: 11.90426341501372, lng: 75.41050493717194 },
   checkInTime: "14:00",
   checkOutTime: "11:00",
   bedrooms: 2,
@@ -241,12 +241,12 @@ export const amenityGroups: AmenityGroup[] = [
 export type Experience = { title: string; body: string; tone: string; photo?: VillaPhotoKey };
 
 export const experiences: Experience[] = [
-  { title: "Private Kerala Sadya", body: "A traditional feast on banana leaf, prepared fresh and laid out for your table at lunch.", tone: "brass" },
-  { title: "Candlelight Poolside Dinner", body: "A curated menu served by the water, lamps lit, the garden quiet around you.", tone: "monsoon" },
-  { title: "Malabar Seafood Evening", body: "The day's catch from the coast, cooked north-Kerala style by your private chef.", tone: "palm" },
-  { title: "Celebration Setup", body: "Flowers, lights and a cake for anniversaries and milestones. Tell us the occasion.", tone: "sand" },
+  { title: "Private Kerala Sadya", body: "A traditional feast on banana leaf, prepared fresh and laid out for your table at lunch.", tone: "brass", photo: "keralaSadya" },
+  { title: "Candlelight Poolside Dinner", body: "A curated menu served by the water, lamps lit, the garden quiet around you.", tone: "monsoon", photo: "poolsideDinner" },
+  { title: "Malabar Seafood Evening", body: "The day's catch from the coast, cooked north-Kerala style by your private chef.", tone: "palm", photo: "seafood" },
+  { title: "Celebration Setup", body: "Flowers, lights and a cake for anniversaries and milestones. Tell us the occasion.", tone: "sand", photo: "celebration" },
   { title: "Slow Morning Wellness", body: "Yoga on the deck and an in-villa Ayurvedic massage, arranged with local practitioners.", tone: "palm", photo: "poolYoga" },
-  { title: "Local Discovery", body: "A gentle guide to backwater kayaking, Theyyam season, Kannur's beaches and quiet corners.", tone: "monsoon" },
+  { title: "Local Discovery", body: "A gentle guide to backwater kayaking, Theyyam season, Kannur's beaches and quiet corners.", tone: "monsoon", photo: "localDiscovery" },
 ];
 
 export type FAQ = { q: string; a: string; group: string };
@@ -282,11 +282,11 @@ export type LocationPoint = { name: string; detail: string; distance: string; du
  */
 export const nearby: LocationPoint[] = [
   { name: "Varam Kadavu", detail: "A scenic riverside walk along the Valapattanam, right by the villa", distance: "2.5 km", duration: "4 min" },
-  { name: "Kizhunna Beach", detail: "Golden sand, rarely crowded", distance: "2.2 km", duration: "24 min" },
   { name: "Kattampally Backwaters", detail: "Kayaking through quiet paddy-fringed canals", distance: "8.5 km", duration: "16 min" },
   { name: "Payyambalam Beach", detail: "Kannur's promenade beach, best at sunset", distance: "10.5 km", duration: "20 min" },
   { name: "St. Angelo Fort", detail: "A 16th-century sea-facing Portuguese fort", distance: "10.5 km", duration: "20 min" },
   { name: "Thottada Beach", detail: "A quiet cove of soft sand", distance: "11.4 km", duration: "21 min" },
+  { name: "Kizhunna Beach", detail: "Golden sand, rarely crowded", distance: "12 km", duration: "21 min" },
   { name: "Parassinikadavu Sri Muthappan Temple", detail: "A riverside temple famed for its daily rituals", distance: "14.8 km", duration: "20 min" },
   { name: "Muzhappilangad Drive-in Beach", detail: "A 4 km stretch of firm, driveable golden sand", distance: "16 km", duration: "30 min" },
   { name: "Neeliyar Kottam", detail: "A Theyyam performance shrine (seasonal, October to May)", distance: "20 km", duration: "36 min" },

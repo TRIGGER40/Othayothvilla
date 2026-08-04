@@ -17,6 +17,7 @@ export default async function CheckInPage() {
         eyebrow="Check-in"
         title="Arriving at Othayoth Villa"
         intro="A calm arrival, step by step. Your host will meet you at the gate."
+        backHref="/guest/dashboard"
       />
 
       {/* Key facts */}

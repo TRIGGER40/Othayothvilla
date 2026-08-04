@@ -243,8 +243,9 @@ const paths: Record<IconName, React.ReactNode> = {
   "chevron-down": <path d="m6 9 6 6 6-6" />,
   logout: (
     <>
-      <path d="M14 4h4a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1h-4" />
-      <path d="M10 12h9M16 8l4 4-4 4" />
+      <path d="M10 4H6a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h4" />
+      <path d="M16 17l5-5-5-5" />
+      <path d="M9 12h12" />
     </>
   ),
 };

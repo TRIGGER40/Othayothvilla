@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { pageMeta } from "@/lib/seo";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -7,10 +8,10 @@ import { PageHero } from "@/components/marketing/PageHero";
 import { BookingCTA } from "@/components/marketing/BookingCTA";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
-import { Scene } from "@/components/ui/Scene";
 import { Card } from "@/components/ui/Card";
 import { Icon, type IconName } from "@/components/icons/Icon";
 import { nearby, site } from "@/lib/content";
+import { villaPhotos } from "@/lib/images";
 
 const GOOGLE_MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${site.geo.lat},${site.geo.lng}`;
 
@@ -101,13 +102,22 @@ export default function LocationPage() {
               rel="noopener noreferrer"
               className="group relative block overflow-hidden rounded-3xl border border-stone-200/60"
             >
-              <Scene tone="palm" motif="palms" aspect="aspect-[16/10]" label="" rounded="" />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="flex flex-col items-center gap-2 rounded-2xl bg-linen-50/90 px-6 py-4 text-center shadow-lift backdrop-blur-sm transition-colors group-hover:bg-linen-50">
-                  <Icon name="pin" size={24} className="text-brass-500" />
-                  <span className="font-serif text-palm-600">Varam, near Kannur</span>
-                  <span className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-brass-500">
-                    Open in Google Maps <Icon name="arrow-up-right" size={14} />
+              <div className="relative aspect-[16/10]">
+                <Image
+                  src={villaPhotos.satelliteMap.src}
+                  alt={villaPhotos.satelliteMap.alt}
+                  fill
+                  sizes="(min-width: 1024px) 60vw, 100vw"
+                  className="object-cover transition-transform duration-500 ease-gentle group-hover:scale-105"
+                />
+              </div>
+              {/* Corner badge, not centered, so the real pin and labels on the map stay visible */}
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-palm-700/70 via-palm-700/10 to-transparent p-4 sm:p-5">
+                <span className="inline-flex items-center gap-2 rounded-full bg-linen-50/95 px-4 py-2 text-sm shadow-lift backdrop-blur-sm transition-colors group-hover:bg-linen-50">
+                  <Icon name="pin" size={16} className="shrink-0 text-brass-500" />
+                  <span className="font-medium text-palm-600">Varam, near Kannur</span>
+                  <span className="inline-flex items-center gap-1 text-xs uppercase tracking-widest text-brass-500">
+                    Open in Maps <Icon name="arrow-up-right" size={12} />
                   </span>
                 </span>
               </div>

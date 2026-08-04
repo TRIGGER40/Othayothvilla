@@ -30,6 +30,7 @@ export default async function ReservationPage() {
         eyebrow="My reservation"
         title="Your booking details"
         intro="A full summary of your stay, add-ons and payments. Receipts are available on request."
+        backHref="/guest/dashboard"
       />
 
       {/* Details */}

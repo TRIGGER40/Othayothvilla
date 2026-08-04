@@ -9,7 +9,6 @@ import { Section, SectionHeading } from "@/components/ui/Section";
 import { FeatureCard } from "@/components/ui/Card";
 import { Reveal } from "@/components/ui/Reveal";
 import { Divider } from "@/components/ui/Bits";
-import { Scene } from "@/components/ui/Scene";
 import { Photo } from "@/components/ui/Photo";
 import { ButtonLink } from "@/components/ui/Button";
 import { Icon, type IconName } from "@/components/icons/Icon";
@@ -167,7 +166,7 @@ export default function HomePage() {
                   ["Sleeps", "Up to 6 guests"],
                   ["Pool", "Private, screened, yours only"],
                   ["Pricing", "Contact us for a custom rate"],
-                  ["Varam Kadavu (river)", "≈ 2.5 km"],
+                  ["Kannur town", "≈ 9 km"],
                   ["Payyambalam Beach", "≈ 10.5 km"],
                   ["Kannur Airport (CNN)", "≈ 19 km"],
                 ].map(([k, v]) => (
@@ -251,7 +250,12 @@ export default function HomePage() {
       <Section tone="linen" size="lg">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <Reveal className="order-2 lg:order-1">
-            <Scene tone="brass" motif="sun" label="North Kerala coast" aspect="aspect-[4/3]" />
+            <Photo
+              src={villaPhotos.northKeralaCoast.src}
+              alt={villaPhotos.northKeralaCoast.alt}
+              label="North Kerala coast"
+              aspect="aspect-[4/3]"
+            />
           </Reveal>
           <Reveal delay={100} className="order-1 lg:order-2">
             <p className="eyebrow mb-5">Where you are</p>

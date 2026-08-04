@@ -7,13 +7,27 @@ export function PortalHeading({
   eyebrow,
   title,
   intro,
+  backHref,
+  backLabel = "Back to dashboard",
 }: {
   eyebrow: string;
   title: string;
   intro?: ReactNode;
+  /** When set, shows a back link above the eyebrow. Omit on the dashboard itself. */
+  backHref?: string;
+  backLabel?: string;
 }) {
   return (
     <div className="mb-8">
+      {backHref && (
+        <Link
+          href={backHref}
+          className="mb-4 flex w-fit items-center gap-1.5 text-sm text-stone-400 transition-colors hover:text-palm-600"
+        >
+          <Icon name="arrow-right" size={16} className="rotate-180" />
+          {backLabel}
+        </Link>
+      )}
       <p className="eyebrow mb-3">{eyebrow}</p>
       <h1 className="text-display-md text-palm-600">{title}</h1>
       {intro && <p className="mt-3 max-w-2xl text-stone-400">{intro}</p>}

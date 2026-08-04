@@ -26,7 +26,7 @@ export default async function PortalLayout({ children }: { children: React.React
               <span className="block text-xs uppercase tracking-widest text-stone-300">Guest</span>
               <span className="block text-sm font-medium text-palm-600">{reservation.guestName}</span>
             </span>
-            <LogoutButton compact className="h-10 w-10 justify-center rounded-full hover:bg-palm-500/10" />
+            <LogoutButton compact className="border border-stone-200/70 hover:bg-palm-500/10" />
           </div>
         </div>
       </header>
