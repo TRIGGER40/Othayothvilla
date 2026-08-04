@@ -22,11 +22,8 @@ await sql`
     check_out_time TEXT NOT NULL DEFAULT '11:00 AM',
     nightly_rate INTEGER NOT NULL DEFAULT 0,
     amount_paid INTEGER NOT NULL DEFAULT 0,
-    balance_due INTEGER NOT NULL DEFAULT 0,
     add_ons JSONB NOT NULL DEFAULT '[]',
     special_requests TEXT,
-    wifi_network TEXT NOT NULL,
-    wifi_password TEXT NOT NULL,
     host_name TEXT NOT NULL,
     host_phone TEXT NOT NULL,
     created_at TIMESTAMPTZ NOT NULL DEFAULT now()

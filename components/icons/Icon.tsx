@@ -42,7 +42,8 @@ export type IconName =
   | "chevron-down"
   | "logout"
   | "link"
-  | "trash";
+  | "trash"
+  | "edit";
 
 const paths: Record<IconName, React.ReactNode> = {
   pool: (
@@ -263,6 +264,12 @@ const paths: Record<IconName, React.ReactNode> = {
       <path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" />
       <path d="M7 7l1 13a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2l1-13" />
       <path d="M10 11v6M14 11v6" />
+    </>
+  ),
+  edit: (
+    <>
+      <path d="M4 20h4l10.5-10.5a2 2 0 0 0 0-2.8l-1.2-1.2a2 2 0 0 0-2.8 0L4 16v4Z" />
+      <path d="M13.5 6.5l3 3" />
     </>
   ),
 };

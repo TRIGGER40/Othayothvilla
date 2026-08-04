@@ -6,6 +6,7 @@ import { WifiCard } from "@/components/guest/WifiCard";
 import { Icon } from "@/components/icons/Icon";
 import { formatDate, nightsBetween } from "@/lib/utils";
 import { portalNav } from "@/lib/portal";
+import { site } from "@/lib/content";
 
 export default async function DashboardPage() {
   const r = await getCurrentReservation();
@@ -79,7 +80,7 @@ export default async function DashboardPage() {
         {/* Wi-Fi */}
         <div className="space-y-4">
           <h2 className="text-sm uppercase tracking-widest text-brass-500">Wi-Fi</h2>
-          <WifiCard network={r.wifi.network} password={r.wifi.password} />
+          <WifiCard network={site.wifi.network} password={site.wifi.password} />
         </div>
 
         {/* Host & help */}

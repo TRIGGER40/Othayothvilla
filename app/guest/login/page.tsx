@@ -7,11 +7,30 @@ import { Wordmark } from "@/components/marketing/Wordmark";
 import { Icon } from "@/components/icons/Icon";
 import { site } from "@/lib/content";
 import { villaPhotos } from "@/lib/images";
+import { OG_IMAGE } from "@/lib/seo";
+
+const GUEST_PORTAL_TITLE = "Your Othayoth Villa Stay Portal";
+const GUEST_PORTAL_DESCRIPTION =
+  "Sign in to your private stay portal for check-in details, house guide, amenities and your receipt.";
 
 export const metadata: Metadata = {
-  title: "Guest Portal Sign-in",
-  description: "Secure, stay-only access to your Othayoth Villa guest portal.",
+  title: GUEST_PORTAL_TITLE,
+  description: GUEST_PORTAL_DESCRIPTION,
   robots: { index: false, follow: false },
+  openGraph: {
+    type: "website",
+    siteName: site.name,
+    locale: "en_IN",
+    title: GUEST_PORTAL_TITLE,
+    description: GUEST_PORTAL_DESCRIPTION,
+    images: [OG_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: GUEST_PORTAL_TITLE,
+    description: GUEST_PORTAL_DESCRIPTION,
+    images: [OG_IMAGE.url],
+  },
 };
 
 export default function GuestLoginPage() {

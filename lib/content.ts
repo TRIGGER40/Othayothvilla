@@ -31,6 +31,8 @@ export const site = {
   checkOutTime: "11:00",
   bedrooms: 2,
   sleeps: 6,
+  // One network for the whole villa; not per-reservation.
+  wifi: { network: "Othayoth_Villa", password: "Othayothvilla2026" },
 };
 
 export type NavItem = { label: string; href: string };

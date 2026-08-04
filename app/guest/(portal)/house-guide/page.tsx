@@ -4,6 +4,7 @@ import { PortalHeading, PortalCard } from "@/components/guest/PortalBits";
 import { WifiCard } from "@/components/guest/WifiCard";
 import { Icon, type IconName } from "@/components/icons/Icon";
 import { houseGuide } from "@/lib/portal";
+import { site } from "@/lib/content";
 
 export default async function HouseGuidePage() {
   const r = await getCurrentReservation();
@@ -18,7 +19,7 @@ export default async function HouseGuidePage() {
         backHref="/guest/dashboard"
       />
 
-      <WifiCard network={r.wifi.network} password={r.wifi.password} />
+      <WifiCard network={site.wifi.network} password={site.wifi.password} />
 
       <div className="grid gap-4 md:grid-cols-2">
         {houseGuide.map((item) => (

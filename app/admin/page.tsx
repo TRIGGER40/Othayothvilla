@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { isWithinAccessWindow, listReservations } from "@/lib/reservations";
-import { ReservationsTable } from "@/components/admin/ReservationsTable";
+import { ReservationsOverview } from "@/components/admin/ReservationsOverview";
 import { Button } from "@/components/ui/Button";
 import { LogoutButton } from "@/components/admin/LogoutButton";
 import { SITE_URL } from "@/lib/seo";
@@ -28,6 +28,9 @@ export default async function AdminPage() {
             </p>
           </div>
           <div className="flex items-center gap-3">
+            <Link href="/admin/calendar">
+              <Button variant="secondary" icon="calendar" iconPosition="left">Calendar</Button>
+            </Link>
             <Link href="/admin/new">
               <Button icon="key" iconPosition="left">Add reservation</Button>
             </Link>
@@ -36,7 +39,7 @@ export default async function AdminPage() {
         </div>
 
         <div className="mt-8">
-          <ReservationsTable rows={rows} />
+          <ReservationsOverview rows={rows} />
         </div>
       </div>
     </main>

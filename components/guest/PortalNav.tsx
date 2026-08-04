@@ -44,7 +44,7 @@ export function PortalTabBar() {
   return (
     <nav
       aria-label="Portal"
-      className="fixed inset-x-0 bottom-0 z-40 border-t border-stone-200/70 bg-linen-50/95 backdrop-blur-md lg:hidden"
+      className="fixed inset-x-0 bottom-0 z-40 border-t border-stone-200/70 bg-linen-50/95 backdrop-blur-md print:hidden lg:hidden"
       style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
     >
       <div className="mx-auto grid max-w-lg grid-cols-5">

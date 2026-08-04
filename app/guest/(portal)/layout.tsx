@@ -16,7 +16,7 @@ export default async function PortalLayout({ children }: { children: React.React
   return (
     <div className="min-h-screen bg-linen-100">
       {/* Top bar */}
-      <header className="sticky top-0 z-30 border-b border-stone-200/70 bg-linen-50/90 backdrop-blur-md">
+      <header className="sticky top-0 z-30 border-b border-stone-200/70 bg-linen-50/90 backdrop-blur-md print:hidden">
         <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
           <Link href="/guest/dashboard" aria-label="Stay dashboard">
             <Wordmark />
@@ -33,7 +33,7 @@ export default async function PortalLayout({ children }: { children: React.React
 
       <div className="mx-auto flex max-w-6xl gap-8 px-4 pb-28 pt-6 sm:px-6 lg:pb-12 lg:pt-10">
         {/* Desktop sidebar */}
-        <aside className="hidden w-64 shrink-0 lg:block">
+        <aside className="hidden w-64 shrink-0 print:hidden lg:block">
           <div className="sticky top-24 space-y-6">
             <div className="rounded-2xl border border-stone-200/70 bg-linen-50 p-5 shadow-soft">
               <p className="text-xs uppercase tracking-widest text-brass-500">Your stay</p>
@@ -68,7 +68,7 @@ export default async function PortalLayout({ children }: { children: React.React
       {/* Mobile sticky support + bottom nav */}
       <a
         href={`tel:${reservation.hostPhone.replace(/\s/g, "")}`}
-        className="fixed bottom-20 right-4 z-40 inline-flex items-center gap-2 rounded-full bg-palm-600 py-3 pl-3 pr-4 text-sm font-medium text-linen-50 shadow-lift lg:hidden"
+        className="fixed bottom-20 right-4 z-40 inline-flex items-center gap-2 rounded-full bg-palm-600 py-3 pl-3 pr-4 text-sm font-medium text-linen-50 shadow-lift print:hidden lg:hidden"
         style={{ marginBottom: "env(safe-area-inset-bottom)" }}
       >
         <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-brass-400 text-palm-700">

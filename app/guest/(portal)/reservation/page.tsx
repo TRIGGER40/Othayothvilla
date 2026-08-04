@@ -1,19 +1,17 @@
 import { redirect } from "next/navigation";
+import Link from "next/link";
 import { getCurrentReservation } from "@/lib/auth";
 import { PortalHeading, PortalCard } from "@/components/guest/PortalBits";
 import { Icon } from "@/components/icons/Icon";
-import { formatDate, nightsBetween, inr } from "@/lib/utils";
+import { formatDate, inr } from "@/lib/utils";
+import { reservationTotals } from "@/lib/reservation-totals";
+import { CANCELLATION_POLICY } from "@/lib/policies";
 
 export default async function ReservationPage() {
   const r = await getCurrentReservation();
   if (!r) redirect("/guest/login");
 
-  const nights = nightsBetween(r.checkIn, r.checkOut);
-  const roomTotal = nights * r.nightlyRate;
-  const addOnTotal = r.addOns
-    .filter((a) => a.status === "confirmed")
-    .reduce((sum, a) => sum + a.price, 0);
-  const total = roomTotal + addOnTotal;
+  const { nights, roomTotal, addOnTotal, total, balanceDue } = reservationTotals(r);
 
   const details: { label: string; value: string }[] = [
     { label: "Booking reference", value: r.bookingRef },
@@ -29,7 +27,7 @@ export default async function ReservationPage() {
       <PortalHeading
         eyebrow="My reservation"
         title="Your booking details"
-        intro="A full summary of your stay, add-ons and payments. Receipts are available on request."
+        intro="A full summary of your stay, add-ons and payments."
         backHref="/guest/dashboard"
       />
 
@@ -78,12 +76,12 @@ export default async function ReservationPage() {
           <div className="border-t border-stone-200/60 pt-3">
             <Row
               label="Balance due"
-              value={r.balanceDue > 0 ? inr(r.balanceDue) : "Fully paid"}
+              value={balanceDue > 0 ? inr(balanceDue) : "Fully paid"}
               strong
-              accent={r.balanceDue > 0}
+              accent={balanceDue > 0}
             />
           </div>
-          {r.balanceDue > 0 && (
+          {balanceDue > 0 && (
             <p className="rounded-xl bg-brass-100/60 p-3 text-xs text-stone-500">
               The balance is settled with your host during your stay. Secure payment
               options will appear here once connected.
@@ -92,13 +90,21 @@ export default async function ReservationPage() {
         </PortalCard>
       </section>
 
-      <button
-        type="button"
+      {/* Cancellation policy */}
+      <section>
+        <h2 className="mb-4 text-sm uppercase tracking-widest text-brass-500">Cancellation & refund policy</h2>
+        <PortalCard>
+          <p className="text-sm leading-relaxed text-stone-500">{CANCELLATION_POLICY}</p>
+        </PortalCard>
+      </section>
+
+      <Link
+        href="/guest/reservation/receipt"
         className="flex w-full items-center justify-center gap-2 rounded-full border border-palm-600/25 py-3 text-sm font-medium text-palm-600 transition-colors hover:bg-palm-500/8"
       >
         <Icon name="receipt" size={18} className="text-brass-400" />
-        Request a receipt
-      </button>
+        Download receipt
+      </Link>
     </div>
   );
 }

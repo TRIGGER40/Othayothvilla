@@ -34,10 +34,8 @@ export type Reservation = {
   checkOutTime: string;
   nightlyRate: number;
   amountPaid: number;
-  balanceDue: number;
   addOns: AddOn[];
   specialRequests?: string;
-  wifi: { network: string; password: string };
   hostName: string;
   hostPhone: string;
 };
@@ -59,11 +57,8 @@ type ReservationRow = {
   check_out_time: string;
   nightly_rate: number;
   amount_paid: number;
-  balance_due: number;
   add_ons: AddOn[];
   special_requests: string | null;
-  wifi_network: string;
-  wifi_password: string;
   host_name: string;
   host_phone: string;
 };
@@ -85,10 +80,8 @@ function rowToReservation(row: ReservationRow): Reservation {
     checkOutTime: row.check_out_time,
     nightlyRate: row.nightly_rate,
     amountPaid: row.amount_paid,
-    balanceDue: row.balance_due,
     addOns: row.add_ons ?? [],
     specialRequests: row.special_requests ?? undefined,
-    wifi: { network: row.wifi_network, password: row.wifi_password },
     hostName: row.host_name,
     hostPhone: row.host_phone,
   };
@@ -124,8 +117,8 @@ const SELECT_FIELDS = `
   package_name, guests_adults, guests_children,
   to_char(check_in, 'YYYY-MM-DD') AS check_in,
   to_char(check_out, 'YYYY-MM-DD') AS check_out,
-  check_in_time, check_out_time, nightly_rate, amount_paid, balance_due,
-  add_ons, special_requests, wifi_network, wifi_password, host_name, host_phone
+  check_in_time, check_out_time, nightly_rate, amount_paid,
+  add_ons, special_requests, host_name, host_phone
 `;
 
 /** Look up by magic-link token. */
@@ -181,10 +174,7 @@ export type NewReservationInput = {
   checkOutTime: string;
   nightlyRate: number;
   amountPaid: number;
-  balanceDue: number;
   specialRequests?: string;
-  wifiNetwork: string;
-  wifiPassword: string;
   hostName: string;
   hostPhone: string;
 };
@@ -198,20 +188,47 @@ export async function createReservation(input: NewReservationInput): Promise<Res
     INSERT INTO reservations (
       id, booking_ref, guest_name, email, phone_last4, access_token, status,
       package_name, guests_adults, guests_children, check_in, check_out,
-      check_in_time, check_out_time, nightly_rate, amount_paid, balance_due,
-      special_requests, wifi_network, wifi_password, host_name, host_phone
+      check_in_time, check_out_time, nightly_rate, amount_paid,
+      special_requests, host_name, host_phone
     ) VALUES (
       ${id}, ${input.bookingRef.trim().toUpperCase()}, ${input.guestName}, ${input.email},
       ${input.phoneLast4}, ${accessToken}, 'confirmed',
       ${input.packageName}, ${input.guestsAdults}, ${input.guestsChildren},
       ${input.checkIn}, ${input.checkOut},
-      ${input.checkInTime}, ${input.checkOutTime}, ${input.nightlyRate}, ${input.amountPaid}, ${input.balanceDue},
-      ${input.specialRequests ?? null}, ${input.wifiNetwork}, ${input.wifiPassword}, ${input.hostName}, ${input.hostPhone}
+      ${input.checkInTime}, ${input.checkOutTime}, ${input.nightlyRate}, ${input.amountPaid},
+      ${input.specialRequests ?? null}, ${input.hostName}, ${input.hostPhone}
     )
     RETURNING ${sql.unsafe(SELECT_FIELDS)}
   `) as ReservationRow[];
 
   return rowToReservation(rows[0]);
+}
+
+/** Updates an existing reservation's details. Id and access token are unchanged, so any link already sent to the guest keeps working. */
+export async function updateReservation(id: string, input: NewReservationInput): Promise<Reservation | null> {
+  const rows = (await sql`
+    UPDATE reservations SET
+      booking_ref = ${input.bookingRef.trim().toUpperCase()},
+      guest_name = ${input.guestName},
+      email = ${input.email},
+      phone_last4 = ${input.phoneLast4},
+      package_name = ${input.packageName},
+      guests_adults = ${input.guestsAdults},
+      guests_children = ${input.guestsChildren},
+      check_in = ${input.checkIn},
+      check_out = ${input.checkOut},
+      check_in_time = ${input.checkInTime},
+      check_out_time = ${input.checkOutTime},
+      nightly_rate = ${input.nightlyRate},
+      amount_paid = ${input.amountPaid},
+      special_requests = ${input.specialRequests ?? null},
+      host_name = ${input.hostName},
+      host_phone = ${input.hostPhone}
+    WHERE id = ${id}
+    RETURNING ${sql.unsafe(SELECT_FIELDS)}
+  `) as ReservationRow[];
+
+  return rows[0] ? rowToReservation(rows[0]) : null;
 }
 
 export async function deleteReservation(id: string): Promise<void> {
