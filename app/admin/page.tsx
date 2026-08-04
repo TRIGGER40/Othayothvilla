@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { isWithinAccessWindow, listReservations } from "@/lib/reservations";
+import { listBookingRequests } from "@/lib/booking-requests";
 import { ReservationsOverview } from "@/components/admin/ReservationsOverview";
 import { Button } from "@/components/ui/Button";
 import { LogoutButton } from "@/components/admin/LogoutButton";
@@ -11,6 +12,8 @@ export const dynamic = "force-dynamic";
 
 export default async function AdminPage() {
   const reservations = await listReservations();
+  const requests = await listBookingRequests();
+  const newRequestCount = requests.filter((r) => r.status === "new").length;
   const rows = reservations.map((r) => ({
     reservation: r,
     active: isWithinAccessWindow(r),
@@ -28,6 +31,14 @@ export default async function AdminPage() {
             </p>
           </div>
           <div className="flex items-center gap-3">
+            <Link href="/admin/requests" className="relative">
+              <Button variant="secondary" icon="mail" iconPosition="left">Requests</Button>
+              {newRequestCount > 0 && (
+                <span className="absolute -right-2 -top-2 inline-flex h-6 min-w-6 items-center justify-center rounded-full bg-brass-400 px-1.5 text-xs font-semibold text-palm-700">
+                  {newRequestCount}
+                </span>
+              )}
+            </Link>
             <Link href="/admin/calendar">
               <Button variant="secondary" icon="calendar" iconPosition="left">Calendar</Button>
             </Link>

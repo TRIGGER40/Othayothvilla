@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/icons/Icon";
 import { ReservationForm, type ReservationFormValues } from "@/components/admin/ReservationForm";
@@ -9,6 +10,15 @@ import { buildStayMessage } from "@/lib/guest-message";
 import type { Reservation } from "@/lib/reservations";
 
 export default function NewReservationPage() {
+  return (
+    <Suspense>
+      <NewReservationPageInner />
+    </Suspense>
+  );
+}
+
+function NewReservationPageInner() {
+  const params = useSearchParams();
   const [message, setMessage] = useState<string | null>(null);
   const [copied, setCopied] = useState(false);
 
@@ -64,6 +74,8 @@ export default function NewReservationPage() {
     );
   }
 
+  const fromRequest = params.get("guestName") !== null;
+
   return (
     <main className="min-h-screen bg-linen-100 px-4 py-10 sm:px-8">
       <div className="mx-auto max-w-2xl">
@@ -73,10 +85,27 @@ export default function NewReservationPage() {
         <h1 className="mt-3 font-serif text-3xl text-palm-600">Add a reservation</h1>
         <p className="mt-1 text-sm text-stone-400">
           This gives the guest a private stay link, active from 72 hours before check-in to 24 hours after checkout.
+          {fromRequest && " Details are pre-filled from their booking request — add the booking reference and last 4 digits of their phone."}
         </p>
 
         <div className="mt-8">
-          <ReservationForm onSubmit={handleSubmit} submitLabel="Add reservation" />
+          <ReservationForm
+            initialValues={
+              fromRequest
+                ? {
+                    guestName: params.get("guestName") ?? undefined,
+                    email: params.get("email") ?? undefined,
+                    checkIn: params.get("checkIn") ?? undefined,
+                    checkOut: params.get("checkOut") ?? undefined,
+                    guestsAdults: Number(params.get("guestsAdults")) || undefined,
+                    guestsChildren: Number(params.get("guestsChildren")) || undefined,
+                    specialRequests: params.get("specialRequests") ?? undefined,
+                  }
+                : undefined
+            }
+            onSubmit={handleSubmit}
+            submitLabel="Add reservation"
+          />
         </div>
       </div>
     </main>

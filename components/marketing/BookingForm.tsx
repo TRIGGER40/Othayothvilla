@@ -12,14 +12,14 @@ const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const PHONE_RE = /^[0-9+\-\s()]{7,20}$/;
 
 /**
- * Booking inquiry form. Validates entirely client-side for UX, but a real
- * submission must be re-validated server-side. Marked as a placeholder submit;
- * wire `onSubmit` to POST to your booking endpoint (with a CSRF token and
- * server-side validation) when the backend is ready.
+ * Booking inquiry form. Validates client-side for UX; the API route
+ * (/api/book) re-validates before saving the request and emailing the owner.
  */
 export function BookingForm() {
   const [errors, setErrors] = useState<Errors>({});
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [serverError, setServerError] = useState<string | null>(null);
   const [checkIn, setCheckIn] = useState("");
   const [checkOut, setCheckOut] = useState("");
 
@@ -44,13 +44,42 @@ export function BookingForm() {
     return next;
   }
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    const next = validate(e.currentTarget);
+    const form = e.currentTarget;
+    const next = validate(form);
     setErrors(next);
-    if (Object.keys(next).length === 0) {
-      // Placeholder: replace with a server POST (CSRF-protected) at integration.
+    if (Object.keys(next).length > 0) return;
+
+    setServerError(null);
+    setSubmitting(true);
+    const data = new FormData(form);
+    try {
+      const res = await fetch("/api/book", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: data.get("name"),
+          email: data.get("email"),
+          phone: data.get("phone"),
+          checkIn: data.get("checkIn"),
+          checkOut: data.get("checkOut"),
+          adults: data.get("adults"),
+          children: data.get("children"),
+          occasion: data.get("occasion"),
+          specialRequests: data.get("requests"),
+        }),
+      });
+      const result = await res.json();
+      if (!res.ok || !result.ok) {
+        setServerError(result.error ?? "Something went wrong. Please try again.");
+        setSubmitting(false);
+        return;
+      }
       setSubmitted(true);
+    } catch {
+      setServerError("We could not reach the server. Please check your connection and try again.");
+      setSubmitting(false);
     }
   }
 
@@ -78,6 +107,11 @@ export function BookingForm() {
 
   return (
     <form onSubmit={handleSubmit} noValidate className="rounded-3xl border border-stone-200/60 bg-linen-50 p-6 shadow-soft sm:p-8">
+      {serverError && (
+        <p className="mb-5 rounded-xl border border-red-200 bg-red-50 p-3 text-sm text-red-800" role="alert">
+          {serverError}
+        </p>
+      )}
       <div className="grid gap-5 sm:grid-cols-2">
         <Field label="Your name" htmlFor="name" required error={errors.name} className="sm:col-span-2">
           <Input id="name" name="name" autoComplete="name" placeholder="Ananya Menon" />
@@ -144,8 +178,8 @@ export function BookingForm() {
         </p>
       )}
 
-      <Button type="submit" size="lg" icon="arrow-right" className="mt-6 w-full">
-        Request availability
+      <Button type="submit" size="lg" icon="arrow-right" className="mt-6 w-full" disabled={submitting}>
+        {submitting ? "Sending…" : "Request availability"}
       </Button>
       <p className="mt-4 text-center text-xs text-stone-300">
         No payment is taken now. We reply with availability and a simple hold.
