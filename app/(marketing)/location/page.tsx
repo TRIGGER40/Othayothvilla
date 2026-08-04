@@ -27,43 +27,43 @@ const attractions: { name: string; distance: string; duration?: string; body: st
     name: "Varam Kadavu",
     distance: "≈ 2.5 km",
     duration: "4 min",
-    body: "A scenic ferry crossing and riverside walk on the Valapattanam, right by the villa. The easiest way to feel the backwater side of Kannur before you have even unpacked.",
+    body: "A riverside walk and ferry crossing on the Valapattanam, right by the villa.",
   },
   {
     name: "Kattampally Backwater Kayaking",
     distance: "≈ 8.5 km",
     duration: "16 min",
-    body: "Quiet paddy-fringed canals just outside Kannur town, best explored slowly by kayak. A gentle, uncrowded way to spend a morning on the water.",
+    body: "Quiet paddy-fringed canals just outside Kannur town, best explored by kayak.",
   },
   {
     name: "Parassinikadavu Sri Muthappan Temple",
     distance: "≈ 14.8 km",
     duration: "20 min",
-    body: "A riverside shrine on the Valapattanam famed for its daily rituals and the Theyyam-inspired worship of Muthappan. One of North Kerala's most distinctive living traditions, and open to visitors year-round.",
+    body: "A riverside shrine famed for its daily rituals and Theyyam-inspired worship, open to visitors year-round.",
   },
   {
     name: "Payyambalam Beach",
     distance: "≈ 10.5 km",
     duration: "20 min",
-    body: "Kannur's much-loved promenade beach, with landscaped lawns, a sculpture garden and one of the finest sunset views in North Kerala.",
+    body: "Kannur's promenade beach, with landscaped lawns and one of the region's best sunset views.",
   },
   {
     name: "St. Angelo Fort",
     distance: "≈ 10.5 km",
     duration: "20 min",
-    body: "A 16th-century Portuguese laterite fort standing over the Arabian Sea, close to Payyambalam, with sweeping views of the fishing harbour and coastline.",
+    body: "A 16th-century Portuguese fort over the Arabian Sea, with views of the fishing harbour.",
   },
   {
     name: "Muzhappilangad Drive-in Beach",
     distance: "≈ 16 km",
     duration: "30 min",
-    body: "Asia's longest drive-in beach, a four-kilometre ribbon of firm golden sand you can actually drive along. Come for the novelty, stay for the sunset.",
+    body: "Asia's longest drive-in beach, a 4 km stretch of firm, driveable golden sand.",
   },
   {
     name: "Neeliyar Kottam",
     distance: "≈ 20 km",
     duration: "36 min",
-    body: "A Theyyam performance shrine, where performers embody deities in vivid costume and firelight. The season runs roughly October to May and is one of the most moving things you can witness in Kerala. Ask us and we will help you time a visit around a real ritual.",
+    body: "A Theyyam performance shrine, October to May. Ask us to help time your visit around a ritual.",
   },
 ];
 
@@ -182,7 +182,7 @@ export default function LocationPage() {
           <SectionHeading
             eyebrow="Explore North Kerala"
             title="The best of Kannur, a short drive away"
-            intro="One of the quiet joys of staying in Varam is how much sits within easy reach. Backwater canals, Theyyam shrines and some of Kerala's best beaches are all close by, without the crowds of the south."
+            intro="Backwater canals, Theyyam shrines and some of Kerala's best beaches, all close by, without the crowds of the south."
             align="center"
             className="mx-auto"
           />
@@ -204,15 +204,14 @@ export default function LocationPage() {
           ))}
         </div>
         <p className="mx-auto mt-10 max-w-2xl text-center leading-relaxed text-stone-400">
-          Want the coast served at your own table instead? Our{" "}
+          Explore by day, come home to a private chef and candlelight dinner by
+          night. See{" "}
           <Link href="/experiences" className="text-palm-600 underline decoration-brass-300 underline-offset-4 hover:decoration-brass-400">
             curated experiences
           </Link>{" "}
-          bring a private chef, Malabar seafood and candlelight dinners to the villa, so you can
-          explore North Kerala by day and come home to a quiet, private evening. When you are
-          ready,{" "}
+          or{" "}
           <Link href="/book" className="text-palm-600 underline decoration-brass-300 underline-offset-4 hover:decoration-brass-400">
-            check availability for your dates
+            check availability
           </Link>
           .
         </p>

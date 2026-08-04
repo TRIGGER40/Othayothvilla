@@ -27,13 +27,12 @@ export function HomeHero() {
             <Icon name="pin" size={14} className="text-brass-200" /> {site.location}
           </p>
           <h1 className="mt-6 text-display-xl text-balance text-linen-50">
-            Escape to Nature. Stay in Timeless Kerala.
+            A private-pool villa on the riverside in Kannur
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-linen-100/90 sm:text-xl">
-            Nestled amidst lush coconut groves, Othayoth Villa is a boutique
-            private-pool retreat designed for slow living. Immerse yourself in
-            Kerala&rsquo;s tropical charm, curated local experiences, and the
-            quiet comfort of a home away from home.
+            The whole 2-bedroom home, exclusively yours. Close to Kannur&rsquo;s
+            beaches, forts and backwaters, built for families, couples and
+            groups.
           </p>
 
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
@@ -41,7 +40,7 @@ export function HomeHero() {
               Check availability
             </ButtonLink>
             <ButtonLink href="/villa" variant="outline" size="lg">
-              Discover the villa
+              Explore the villa
             </ButtonLink>
           </div>
 

@@ -45,21 +45,13 @@ export default function VillaPage() {
             </h2>
             <div className="mt-6 space-y-4 text-lg leading-relaxed text-stone-400">
               <p>
-                Othayoth is an old tharavad name, the kind Malabar families have
-                given their ancestral homes for generations. It belonged to the
-                house that stood on this land long before the villa did. When we
-                rebuilt, we kept the name. It felt right to carry forward what was
-                already here, rather than reach for something new.
+                Othayoth is an old tharavad name, carried forward from the house
+                that stood on this land before the villa did.
               </p>
               <p>
-                We built it with local hands and local materials. Teak and cane,
-                warm stone underfoot, tiled roofs that sing in the monsoon, and
-                brass that catches the evening lamps. Nothing loud, nothing that
-                asks for attention.
-              </p>
-              <p>
-                The result is a villa that feels like a private Kerala home, not a
-                hotel. Somewhere to arrive, exhale, and stay a while.
+                Built with local hands and materials: teak, cane, warm stone,
+                tiled roofs and brass. The result feels like a private Kerala
+                home, not a hotel.
               </p>
             </div>
           </Reveal>

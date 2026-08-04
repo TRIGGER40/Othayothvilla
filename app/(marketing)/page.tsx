@@ -26,6 +26,27 @@ export default function HomePage() {
     <>
       <HomeHero />
 
+      {/* Quick facts strip */}
+      <Section tone="cream" size="sm">
+        <ul className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-center">
+          {[
+            { icon: "pool", label: "Private pool" },
+            { icon: "key", label: "Whole villa, exclusively" },
+            { icon: "users", label: "Sleeps 6" },
+            { icon: "pin", label: "Riverside, Kannur" },
+            { icon: "map", label: "Near beaches & forts" },
+            { icon: "wifi", label: "Wi-Fi" },
+            { icon: "car", label: "Free parking" },
+            { icon: "utensils", label: "Chef on request" },
+          ].map((f) => (
+            <li key={f.label} className="flex items-center gap-2 text-sm font-medium text-palm-600">
+              <Icon name={f.icon as IconName} size={16} className="text-brass-400" />
+              {f.label}
+            </li>
+          ))}
+        </ul>
+      </Section>
+
       {/* Intro / summary */}
       <Section tone="linen" size="lg">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
@@ -36,30 +57,20 @@ export default function HomePage() {
             </h2>
             <div className="mt-6 space-y-4 text-lg leading-relaxed text-stone-400">
               <p>
-                Behind a green wall of coconut and areca, on the Valapattanam
-                riverside in Varam, Othayoth Villa is a two-bedroom{" "}
+                Othayoth Villa is a two-bedroom{" "}
                 <Link href="/rooms" className="text-palm-600 underline decoration-brass-300 underline-offset-4 hover:decoration-brass-400">
                   private pool villa in Kannur
-                </Link>{" "}
-                built around water and a slow way of being.
-              </p>
-              <p>
-                It is yours entirely for the length of your stay. Whether you come
-                as a couple, a family or a gathering of friends, the whole home,
-                garden and pool belong to your group alone. Explore the{" "}
-                <Link href="/amenities" className="text-palm-600 underline decoration-brass-300 underline-offset-4 hover:decoration-brass-400">
-                  amenities
-                </Link>{" "}
-                or{" "}
-                <Link href="/book" className="text-palm-600 underline decoration-brass-300 underline-offset-4 hover:decoration-brass-400">
-                  check availability
-                </Link>{" "}
-                for your dates.
+                </Link>
+                , on the Valapattanam riverside in Varam. Book the whole home,
+                garden and pool for your group alone, couples, families or friends.
               </p>
             </div>
-            <div className="mt-8">
+            <div className="mt-8 flex flex-wrap gap-3">
               <ButtonLink href="/villa" variant="secondary" icon="arrow-right">
                 The story of the villa
+              </ButtonLink>
+              <ButtonLink href="/amenities" variant="ghost">
+                See amenities
               </ButtonLink>
             </div>
           </Reveal>
@@ -116,45 +127,33 @@ export default function HomePage() {
               eyebrow="Why Othayoth"
               title="A private pool villa in Kannur, made for the people you bring"
             />
-            <div className="mt-6 space-y-4 leading-relaxed text-stone-400">
+            <div className="mt-6 leading-relaxed text-stone-400">
               <p>
-                Most stays in Kannur mean a hotel room and shared corridors. Othayoth is
-                the opposite: a whole home you have to yourselves. For couples looking for a{" "}
-                <Link href="/villa" className="text-palm-600 underline decoration-brass-300 underline-offset-4 hover:decoration-brass-400">
-                  romantic villa in Kannur
-                </Link>
-                , families wanting room to spread out, or friends planning a weekend
-                getaway, the private pool, garden and both bedrooms are yours alone.
+                A whole home to yourselves, not a hotel room. Private pool, garden
+                and both bedrooms, for couples, families or friends.
               </p>
-              <p>
-                The villa sits in Varam, on the quiet riverside stretch of North Kerala,
-                a short drive from backwater kayaking, Theyyam shrines and Payyambalam
-                beach, and roughly 19 km from Kannur International Airport (CNN). It is
-                close enough to explore St. Angelo Fort and Muzhappilangad drive-in
-                beach, yet far enough to feel like a genuine retreat. See{" "}
+            </div>
+            <ul className="mt-6 space-y-3 text-stone-400">
+              <li>
+                Riverside in Varam, minutes from{" "}
                 <Link href="/location" className="text-palm-600 underline decoration-brass-300 underline-offset-4 hover:decoration-brass-400">
-                  how to reach us and what is nearby
+                  backwater kayaking, Theyyam shrines and Payyambalam beach
                 </Link>
-                .
-              </p>
-              <p>
-                Every stay is hosted, never crowded. Order a private chef for a Kerala
-                sadya or a Malabar seafood dinner, arrange a candlelight evening by the
-                pool, or simply do nothing at all. Browse the{" "}
+                , ≈19 km from Kannur Airport (CNN).
+              </li>
+              <li>
+                Hosted, never crowded. Private chef, sadya, seafood dinners and
+                candlelight evenings, arranged through{" "}
                 <Link href="/stay-experience" className="text-palm-600 underline decoration-brass-300 underline-offset-4 hover:decoration-brass-400">
-                  stay experience
+                  the stay experience
                 </Link>{" "}
                 and{" "}
                 <Link href="/experiences" className="text-palm-600 underline decoration-brass-300 underline-offset-4 hover:decoration-brass-400">
                   curated experiences
                 </Link>
-                , or{" "}
-                <Link href="/contact" className="text-palm-600 underline decoration-brass-300 underline-offset-4 hover:decoration-brass-400">
-                  talk to us
-                </Link>{" "}
-                about your dates.
-              </p>
-            </div>
+                .
+              </li>
+            </ul>
           </Reveal>
 
           <Reveal delay={120}>
