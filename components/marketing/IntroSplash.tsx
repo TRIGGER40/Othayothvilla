@@ -78,18 +78,28 @@ export function IntroSplash() {
       )}
       style={{ transitionDuration: `${FADE_MS}ms` }}
     >
-      <Image
-        src={logo.verticalLight.src}
-        alt=""
-        width={logo.verticalLight.width}
-        height={logo.verticalLight.height}
-        priority
-        className={cn(
-          "h-auto w-44 sm:w-56 transition-all ease-gentle",
-          logoIn ? "scale-100 opacity-100" : "scale-95 opacity-0",
-        )}
-        style={{ transitionDuration: `${ENTER_MS}ms` }}
-      />
+      <div className="flex flex-col items-center gap-8">
+        <Image
+          src={logo.verticalLight.src}
+          alt=""
+          width={logo.verticalLight.width}
+          height={logo.verticalLight.height}
+          priority
+          className={cn(
+            "h-auto w-44 sm:w-56 transition-all ease-gentle",
+            logoIn ? "scale-100 opacity-100" : "scale-95 opacity-0",
+          )}
+          style={{ transitionDuration: `${ENTER_MS}ms` }}
+        />
+        <span
+          aria-hidden="true"
+          className={cn(
+            "h-8 w-8 animate-spin rounded-full border-2 border-palm-600/15 border-t-palm-600 transition-opacity ease-gentle",
+            logoIn ? "opacity-100" : "opacity-0",
+          )}
+          style={{ transitionDuration: `${ENTER_MS}ms` }}
+        />
+      </div>
       {/* Without JS this timer never fires; hide immediately rather than block the page. */}
       <noscript>
         <style>{"#site-intro-splash{display:none!important}"}</style>

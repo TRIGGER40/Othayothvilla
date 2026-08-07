@@ -4,6 +4,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbList } from "@/lib/schema";
 import { PageHero } from "@/components/marketing/PageHero";
 import { BookingForm } from "@/components/marketing/BookingForm";
+import { ScrollToForm } from "@/components/marketing/ScrollToForm";
 import { Section } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
 import { Icon, type IconName } from "@/components/icons/Icon";
@@ -25,6 +26,7 @@ export default function BookPage() {
   return (
     <>
       <JsonLd data={breadcrumbList([{ name: "Home", path: "/" }, { name: "Check Availability", path: "/book" }])} />
+      <ScrollToForm targetId="availability-form" />
       <PageHero
         eyebrow="Check Availability"
         title="Tell us your dates"
@@ -33,7 +35,7 @@ export default function BookPage() {
       />
 
       <Section tone="linen" size="lg">
-        <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
+        <div id="availability-form" className="scroll-mt-24 grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
           <Reveal>
             <BookingForm />
           </Reveal>
