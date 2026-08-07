@@ -45,16 +45,17 @@ export default function VillaPage() {
             </h2>
             <div className="mt-6 space-y-4 text-lg leading-relaxed text-stone-400">
               <p>
-                Othayoth is our family&rsquo;s tharavad name. Our ancestral
+                Othayoth is our family&rsquo;s tharavad name. We are a
+                prestigious, traditional Nair landed gentry (tharavad) deeply
+                rooted in the socio-cultural and ritualistic heritage of North
+                Malabar. Under the historical matrilineal (Marumakkathayam)
+                system, we managed extensive ancestral estates across the Varam
+                and Kadangode regions, serving as respected community
+                administrators and village-level leaders. Our ancestral
                 tharavadu stands right next to this villa, built in the 1950s,
                 and the older family home, a kilometre up the road, dates back
                 to the 1800s. We still gather there every year for our Theyyam
                 ritual.
-              </p>
-              <p>
-                Built with local hands and materials: teak, cane, warm stone,
-                tiled roofs and brass. The result feels like a private Kerala
-                home, not a hotel.
               </p>
             </div>
           </Reveal>
@@ -75,7 +76,7 @@ export default function VillaPage() {
               <Photo
                 src={villaPhotos.familyArchive1970s.src}
                 alt={villaPhotos.familyArchive1970s.alt}
-                label="Three generations, 1970s"
+                label="Two generations, 1970s"
                 aspect="aspect-square"
               />
             </div>

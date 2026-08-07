@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     template: `%s · ${site.name}`,
   },
   description:
-    "Othayoth Villa is a boutique private pool villa in Kannur, Kerala. Book the whole two-bedroom home on the Valapattanam riverside in Varam, with a private pool, a Kerala table and warm, personal hospitality.",
+    "Othayoth Villa is a boutique private pool villa in Kannur, Kerala. Book the whole two-bedroom home in Varam, near the Valapattanam river, with a private pool, a Kerala table and warm, personal hospitality.",
   applicationName: site.name,
   authors: [{ name: site.name }],
   creator: site.name,
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: `${site.name} · Private Pool Villa in Kannur`,
     description:
-      "A boutique private pool villa in Kannur, Kerala. Book the whole home on the Valapattanam riverside in Varam.",
+      "A boutique private pool villa in Kannur, Kerala. Book the whole home in Varam, near the Valapattanam river.",
     images: [OG_IMAGE.url],
   },
   robots: {

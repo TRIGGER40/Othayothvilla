@@ -10,7 +10,7 @@ export const site = {
   name: "Othayoth Villa",
   /** Short form used mid-sentence, especially before a descriptive clause. */
   shortName: "Othayoth",
-  tagline: "A private pool villa on the Valapattanam riverside, Kannur",
+  tagline: "A private pool villa in Varam, near Kannur",
   location: "Varam, Kannur, Kerala",
   phoneDisplay: "+91 88938 60226",
   phoneHref: "+918893860226",
@@ -92,7 +92,7 @@ export const highlights: Highlight[] = [
   },
   {
     title: "Rooted in Kannur",
-    body: "On the Valapattanam riverside in Varam, close to Theyyam shrines and the slow rhythm of north Kerala, yet tucked behind a green wall of coconut and areca.",
+    body: "In Varam, near the Valapattanam river, close to Theyyam shrines and the slow rhythm of north Kerala, yet tucked behind a green wall of coconut and areca.",
     icon: "leaf",
   },
   {
@@ -283,7 +283,7 @@ export type LocationPoint = { name: string; detail: string; distance: string; du
  * distances are still marked TODO until confirmed against an actual drive.
  */
 export const nearby: LocationPoint[] = [
-  { name: "Varam Kadavu", detail: "A scenic riverside walk along the Valapattanam, right by the villa", distance: "2.5 km", duration: "4 min" },
+  { name: "Varam Kadavu", detail: "A scenic riverside walk along the Valapattanam", distance: "2.5 km", duration: "4 min" },
   { name: "Kattampally Backwaters", detail: "Kayaking through quiet paddy-fringed canals", distance: "8.5 km", duration: "16 min" },
   { name: "Payyambalam Beach", detail: "Kannur's promenade beach, best at sunset", distance: "10.5 km", duration: "20 min" },
   { name: "St. Angelo Fort", detail: "A 16th-century sea-facing Portuguese fort", distance: "10.5 km", duration: "20 min" },

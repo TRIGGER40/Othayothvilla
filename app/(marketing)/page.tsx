@@ -18,7 +18,7 @@ import { villaPhotos } from "@/lib/images";
 export const metadata: Metadata = pageMeta("home", {
   title: "Private Pool Villa in Kannur, Kerala | Othayoth Villa",
   description:
-    "Othayoth Villa is a boutique private pool villa in Kannur, Kerala. Book the whole 2-bedroom riverside home in Varam for families and couples. Same-day availability.",
+    "Othayoth Villa is a boutique private pool villa in Kannur, Kerala. Book the whole 2-bedroom home in Varam for families and couples. Same-day availability.",
 });
 
 export default function HomePage() {
@@ -61,8 +61,8 @@ export default function HomePage() {
                 <Link href="/rooms" className="text-palm-600 underline decoration-brass-300 underline-offset-4 hover:decoration-brass-400">
                   private pool villa in Kannur
                 </Link>
-                , on the Valapattanam riverside in Varam. Book the whole home,
-                garden and pool for your group alone, couples, families or friends.
+                , in Varam near Kannur. Book the whole home, garden and pool for
+                your group alone, couples, families or friends.
               </p>
             </div>
             <div className="mt-8 flex flex-wrap gap-3">
@@ -129,7 +129,7 @@ export default function HomePage() {
             />
             <ul className="mt-6 space-y-3 text-stone-400">
               <li>
-                Riverside in Varam, minutes from{" "}
+                In Varam, near Kannur, minutes from{" "}
                 <Link href="/location" className="text-palm-600 underline decoration-brass-300 underline-offset-4 hover:decoration-brass-400">
                   backwater kayaking, Theyyam shrines and Payyambalam beach
                 </Link>

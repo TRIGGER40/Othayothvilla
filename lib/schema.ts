@@ -89,7 +89,7 @@ function lodgingBusiness() {
     "@id": BUSINESS_ID,
     name: site.name,
     description:
-      "Othayoth Villa is a boutique private pool villa in Kannur, Kerala, booked as a whole two-bedroom home for couples, families and small groups on the Valapattanam riverside in Varam.",
+      "Othayoth Villa is a boutique private pool villa in Kannur, Kerala, booked as a whole two-bedroom home for couples, families and small groups in Varam, near the Valapattanam river.",
     url: SITE_URL,
     telephone: site.phoneDisplay,
     image: [abs(OG_IMAGE.url), ...allPhotoUrls],

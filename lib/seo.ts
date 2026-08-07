@@ -50,7 +50,7 @@ export const PAGE_KEYWORDS: Record<PageKey, string[]> = {
   rooms: ["2 bedroom villa Kannur", "villa with kitchen Kannur", "family villa Kannur", "air conditioned villa Kannur", "villa rooms Kannur"],
   amenities: ["villa with private swimming pool", "villa with kitchen Kannur", "villa amenities Kannur", "catering villa Kerala"],
   gallery: ["Othayoth Villa photos", "pool villa Kannur photos", "luxury villa Kannur gallery", "Kerala villa interiors"],
-  location: ["villa near Payyambalam Beach", "villa near Muzhappilangad Beach", "villa in Varam Kannur", "riverside villa Kannur", "villa near Kannur Airport", "best place to stay in Kannur", "luxury stay in North Kerala"],
+  location: ["villa near Payyambalam Beach", "villa near Muzhappilangad Beach", "villa in Varam Kannur", "villa near Valapattanam river", "villa near Kannur Airport", "best place to stay in Kannur", "luxury stay in North Kerala"],
   experiences: ["Kerala villa vacation", "candlelight dinner Kannur", "curated experiences Kannur", "Ayurveda villa Kerala", "Theyyam Kannur"],
   faq: ["villa booking Kannur", "pool villa rules Kannur", "villa check-in Kannur", "family villa Kannur FAQ"],
   contact: ["book villa Kannur", "contact Othayoth Villa", "villa enquiry Kannur", "villa phone Kannur"],

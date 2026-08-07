@@ -16,9 +16,9 @@ import { villaPhotos } from "@/lib/images";
 const GOOGLE_MAPS_URL = `https://www.google.com/maps/search/?api=1&query=${site.geo.lat},${site.geo.lng}`;
 
 export const metadata: Metadata = pageMeta("location", {
-  title: "Location | Riverside Villa Near Kannur, Kerala",
+  title: "Location | Private Pool Villa Near Kannur, Kerala",
   description:
-    "Othayoth Villa sits on the Valapattanam riverside in Varam, near Kannur. Minutes from backwater kayaking, Theyyam shrines, Payyambalam and Muzhappilangad beaches.",
+    "Othayoth Villa sits in Varam, near Kannur and the Valapattanam river. Minutes from backwater kayaking, Theyyam shrines, Payyambalam and Muzhappilangad beaches.",
 });
 
 const reach: { icon: IconName; title: string; body: string }[] = [
@@ -36,7 +36,7 @@ export default function LocationPage() {
       <PageHero
         eyebrow="Location"
         title="Varam, Kannur, at the pace of the backwaters"
-        intro="Othayoth sits on the Valapattanam riverside in Varam, north of Kannur town. Close to kayaking canals, Theyyam shrines and quiet beaches, yet a world away from the crowds."
+        intro="Othayoth sits in Varam, north of Kannur town, a couple of kilometres from the Valapattanam river. Close to kayaking canals, Theyyam shrines and quiet beaches, yet a world away from the crowds."
         photo="mainGate"
       />
 

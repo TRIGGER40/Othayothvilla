@@ -78,7 +78,7 @@ export const recommendations: Recommendation[] = [
     category: "Backwaters & Beaches",
     icon: "wave",
     places: [
-      { name: "Varam Kadavu", note: "Scenic riverside walk, right by the villa", distance: "2.5 km" },
+      { name: "Varam Kadavu", note: "Scenic riverside walk, a short drive away", distance: "2.5 km" },
       { name: "Kattampally Backwaters", note: "Kayaking through quiet canals", distance: "8.5 km" },
       { name: "Payyambalam Beach", note: "Long promenade, best at sunset", distance: "10.5 km" },
       { name: "Muzhappilangad Drive-in Beach", note: "Four-kilometre drive-in beach", distance: "16 km" },
